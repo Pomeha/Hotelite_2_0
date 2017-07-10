@@ -29,7 +29,6 @@
       .row
         .form-actions
           = f.button :submit, "Сохранить изменения",
-            class:"btn btn-primary"
-    .btn.btn-primary.button
-      #{link_to "Удалить аккаунт", registration_path(resource_name), data: { confirm: "Вы уверены?" }, method: :delete}
+            class:"btn btn-primary"            
+    #{link_to "Удалить аккаунт", registration_path(resource_name),class:"btn btn-primary", data: { confirm: "Вы уверены?" }, method: :delete}
  

@@ -53,4 +53,4 @@
     %p Войдите или зарегистрируйтесь для написания отзыва
   - if @hotel.reviews.count>0 
     - @hotel.reviews.each do |review|
-      = render 'reviews/review', review: review
+      = render 'reviews/review', review: review,user: current_user,hotel: @hotel
