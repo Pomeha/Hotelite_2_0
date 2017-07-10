@@ -1,0 +1,31 @@
+%h1 Listing hotels
+
+%table
+  %tr
+    %th Name
+    %th Star
+    %th Address
+    %th Description
+    %th Price
+    %th Room
+    %th Breakfes
+    %th
+    %th
+    %th
+
+  - @hotels.each do |hotel|
+    %tr
+      %td= hotel.name
+      %td= hotel.star
+      %td= hotel.address
+      %td= hotel.description
+      %td= hotel.price
+      %td= hotel.room
+      %td= hotel.breakfes
+      %td= link_to 'Show', [:admin, hotel]
+      %td= link_to 'Edit', edit_admin_hotel_path(hotel)
+      %td= link_to 'Destroy', [:admin, hotel], :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Hotel', new_admin_hotel_path
