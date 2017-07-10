@@ -1,0 +1,18 @@
+%article  
+  .form-horizontal
+    = simple_form_for([ @hotel, Review.new(hotel: @hotel) ]) do |f|
+      = f.input :rate,
+        label:"Ваша оценка",
+        collection: Review::RATES, 
+        prompt: "Выберите оценку", 
+        required: true, 
+        input_html: { class: "form-control" },
+        label_html: { class: 'form-label' }
+      =f.input :review,
+        as: :text, 
+        label:"Ваш отзыв",
+        input_html: { class: "form-control" },
+        label_html: { class: 'form-label' }
+      .row
+        =f.submit 'Отправить', 
+          class:"btn btn-primary pull-right"

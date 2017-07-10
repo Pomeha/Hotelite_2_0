@@ -1,0 +1,12 @@
+.container-fluid{:style=>"background-color:lightgrey; border-radius:15px; margin:1%"}
+  .row
+    %header
+      %h4.hotel_panel_header.col-xs-6{:style=>"display:inline"}
+        Пользователь:
+        =review.user.email
+      %p{:style=>"display:inline"}
+        Оценка:
+      =hotel_rating review
+  .row
+    .col-xs-12
+      =review.review

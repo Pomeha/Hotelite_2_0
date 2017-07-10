@@ -1,0 +1,255 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (104.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (118.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateHotels (10170628235422)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "hotels" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "star" integer, "breakfest" boolean, "address" varchar, "photopath" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "10170628235422"]]
+  [1m[35m (139.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to DeviseCreateUsers (13370704035021)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "13370704035021"]]
+  [1m[35m (101.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateReviews (20170628224129)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "rate" integer, "review" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170628224129"]]
+  [1m[35m (104.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddUserToReviews (20170628233746)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "reviews" ADD "user_id" integer[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE  INDEX "index_reviews_on_user_id" ON "reviews" ("user_id")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170628233746"]]
+  [1m[35m (99.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddDescriptionToHotel (20170628235935)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "hotels" ADD "description" varchar[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170628235935"]]
+  [1m[35m (52.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddReferencesToReviews (20170629002815)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "reviews" ADD "hotel_id" integer[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reviews_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reviews_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_reviews_on_hotel_id" ON "reviews" ("hotel_id")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170629002815"]]
+  [1m[35m (64.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddImageToHotel (20170701155457)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "hotels" ADD "image" varchar[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170701155457"]]
+  [1m[35m (43.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to RemovePhotopathFromHotels (20170701203718)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ahotels" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar DEFAULT NULL, "star" integer DEFAULT NULL, "breakfest" boolean DEFAULT NULL, "address" varchar DEFAULT NULL, "photopath" varchar DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "description" varchar DEFAULT NULL, "image" varchar DEFAULT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "ahotels" ("id","name","star","breakfest","address","photopath","created_at","updated_at","description","image")
+                     SELECT "id","name","star","breakfest","address","photopath","created_at","updated_at","description","image" FROM "hotels"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "hotels"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "hotels" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar DEFAULT NULL, "star" integer DEFAULT NULL, "breakfest" boolean DEFAULT NULL, "address" varchar DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "description" varchar DEFAULT NULL, "image" varchar DEFAULT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "hotels" ("id","name","star","breakfest","address","created_at","updated_at","description","image")
+                     SELECT "id","name","star","breakfest","address","created_at","updated_at","description","image" FROM "ahotels"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "ahotels"[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170701203718"]]
+  [1m[35m (71.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddAdminToUsers (20170704043629)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "admin" boolean DEFAULT 'f'[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170704043629"]]
+  [1m[35m (55.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddUserIdToHotels (20170704050953)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "hotels" ADD "user_id" integer[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE  INDEX "index_hotels_on_user_id" ON "hotels" ("user_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170704050953"]]
+  [1m[35m (88.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddRoomToHotels (20170704163050)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "hotels" ADD "room" text[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170704163050"]]
+  [1m[35m (56.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddPriceToHotels (20170705020031)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "hotels" ADD "price" integer[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170705020031"]]
+  [1m[35m (49.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddRateToHotels (20170706132027)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "hotels" ADD "rate" integer[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170706132027"]]
+  [1m[35m (59.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-07-10 13:29:53.612548"], ["updated_at", "2017-07-10 13:29:53.612548"]]
+  [1m[35m (65.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_hotels_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_hotels_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reviews_on_hotel_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reviews_on_hotel_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reviews_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reviews_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2017-07-10 16:30:16 +0300
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HotelsController#top as HTML
+  Rendering hotels/top.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (13.6ms)
+  [1m[36mHotel Load (0.8ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" ORDER BY "hotels"."rate" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  Rendered hotels/top.html.haml within layouts/application (63.4ms)
+Completed 200 OK in 1308ms (Views: 1260.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-07-10 16:30:22 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (7.1ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (269.6ms)
+Completed 200 OK in 486ms (Views: 437.7ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-07-10 16:30:33 +0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZSZdIJED1xJ1mpgcQoollDCcA6/O2MPAXZu9WjNr1gVEThaITZGZ3od5V4fzDCwMPUI2Fn8iUZDPQ++17ECN8g==", "user"=>{"email"=>"asd@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Зарегистрироваться"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "asd@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "asd@gmail.com"], ["encrypted_password", "$2a$11$SiPwhUJUzeVHtGXOo8bgv.MZSC0fSG2fbE591k4QFN9TL7TthoFcu"], ["created_at", "2017-07-10 13:30:33.861931"], ["updated_at", "2017-07-10 13:30:33.861931"]]
+  [1m[35m (92.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-07-10 13:30:33.963237"], ["last_sign_in_at", "2017-07-10 13:30:33.963237"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2017-07-10 13:30:33.964824"], ["id", 1]]
+  [1m[35m (87.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 598ms (ActiveRecord: 182.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-10 16:30:34 +0300
+Processing by HotelsController#top as HTML
+  Rendering hotels/top.html.haml within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.haml (17.9ms)
+  [1m[36mHotel Load (0.8ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" ORDER BY "hotels"."rate" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  Rendered hotels/top.html.haml within layouts/application (32.2ms)
+Completed 200 OK in 182ms (Views: 178.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/hotels/new" for 127.0.0.1 at 2017-07-10 16:30:37 +0300
+Processing by HotelsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering hotels/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (9.4ms)
+DEPRECATION WARNING: input method now accepts a `wrapper_options` argument. The method definition without the argument is deprecated and will be removed in the next Simple Form version. Change your code from:
+
+    def input
+
+to
+
+    def input(wrapper_options)
+
+See https://github.com/plataformatec/simple_form/pull/997 for more information.
+ (called from block in _app_views_hotels__form_html_haml__2237012146132096236_70052729721040 at /home/vladakim/Hotelite_Advanced/app/views/hotels/_form.html.haml:44)
+  Rendered hotels/_form.html.haml (75.9ms)
+  Rendered hotels/new.html.haml within layouts/application (91.6ms)
+Completed 200 OK in 235ms (Views: 187.3ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/hotels" for 127.0.0.1 at 2017-07-10 16:31:02 +0300
+Processing by HotelsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Y/eTcVR87jqImP758vyscV6NX1jk64/6RRRogOhAE7waAfGDpWQbQtnAKoK2qKCBkc80ItswQBot2ZDRgRPCpA==", "hotel"=>{"name"=>"sadasdasdasdasdasdas", "star"=>"5", "breakfest"=>"1", "address"=>"asdasdasdasd", "description"=>"asdasdasdasd", "room"=>"asdasdasd", "price"=>"200", "image_cache"=>""}, "commit"=>"Создать запись"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameter: :image_cache
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (7.1ms)[0m  [1m[32mINSERT INTO "hotels" ("name", "star", "breakfest", "address", "created_at", "updated_at", "description", "user_id", "room", "price", "rate") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "sadasdasdasdasdasdas"], ["star", 5], ["breakfest", "t"], ["address", "asdasdasdasd"], ["created_at", "2017-07-10 13:31:02.787719"], ["updated_at", "2017-07-10 13:31:02.787719"], ["description", "asdasdasdasd"], ["user_id", 1], ["room", "asdasdasd"], ["price", 200], ["rate", 0]]
+  [1m[35m (77.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/hotels/1
+Completed 302 Found in 239ms (ActiveRecord: 85.4ms)
+
+
+Started GET "/hotels/1" for 127.0.0.1 at 2017-07-10 16:31:02 +0300
+Processing by HotelsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHotel Load (0.4ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Hotel Load (0.0ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering hotels/show.html.haml within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.haml (9.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReview Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "reviews" WHERE "reviews"."hotel_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["hotel_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  Rendered reviews/_review_form.html.haml (24.4ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."hotel_id" = ?[0m  [["hotel_id", 1]]
+  Rendered hotels/show.html.haml within layouts/application (123.1ms)
+Completed 200 OK in 229ms (Views: 206.3ms | ActiveRecord: 2.6ms)
+
+
+Started DELETE "/hotels/1" for 127.0.0.1 at 2017-07-10 16:31:09 +0300
+Processing by HotelsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ygiO4jRrDNyxkuT/UsSFHqOM5Nj8bXw5YVvf0fqPGGYt7hZzW7U/9NY9Ar63MXtNdtkoA1zd7lWOicnaeWKVVw==", "id"=>"1"}
+  [1m[36mHotel Load (0.4ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "hotels" WHERE "hotels"."id" = ?[0m  [["id", 1]]
+  [1m[35m (87.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/hotels
+Completed 302 Found in 97ms (ActiveRecord: 89.2ms)
+
+
+Started GET "/hotels" for 127.0.0.1 at 2017-07-10 16:31:09 +0300
+Processing by HotelsController#index as HTML
+  Rendering hotels/index.html.haml within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.haml (12.0ms)
+  [1m[36mHotel Load (0.4ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" ORDER BY "hotels"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  Rendered hotels/index.html.haml within layouts/application (41.0ms)
+Completed 200 OK in 140ms (Views: 137.4ms | ActiveRecord: 0.9ms)
+
+

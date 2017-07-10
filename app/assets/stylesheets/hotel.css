@@ -1,0 +1,29 @@
+
+.comment_form textarea{
+    width: 100%;
+}
+
+.comment+.comment{
+    border-top: grey 1px dashed;
+    margin-top:1%;
+}
+
+
+.hotel_description{
+    width:100%;
+}
+
+.table_room{
+    width:100%;
+}
+
+.hotel_page_image,.hotel_page_image img{
+    min-height: 50px;
+    min-width: 50px;
+    max-height: 60vh;
+}
+
+
+article:hover{
+    background-color: inherit
+}

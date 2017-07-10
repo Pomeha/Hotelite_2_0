@@ -1,0 +1,10 @@
+= render 'layouts/header'
+- content_for :title, @hotel.name
+%article
+  %h3 Редактирование отеля
+
+= render 'form'
+
+/= link_to 'Show', @hotel
+
+/= link_to 'Back', hotels_path

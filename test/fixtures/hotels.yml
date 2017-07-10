@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  star: 1
+  breakfest: false
+  address: MyString
+  photopath: MyString
+
+two:
+  name: MyString
+  star: 1
+  breakfest: false
+  address: MyString
+  photopath: MyString

@@ -1,0 +1,41 @@
+.hotel_panel{
+    background-color: lightgray;
+    border-radius: 15px
+}
+
+.hotel_panel_description,.hotel_panel_image img{
+    max-height: 30vh;
+    height:100%;
+}
+
+.hotel_panel_image img{
+    background-color: grey;
+    min-height: 50px;
+    min-width: 50px;
+}
+
+.hotel_panel_description{
+    overflow: hidden;
+}
+
+
+.hotel_panel:hover{
+    background-color: lightsteelblue;
+}
+
+.hotel_panel_header{
+    margin-top:0;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.pagination{
+    text-align: center
+}
+
+.pagination > li > a{
+    color:inherit;
+}
+
+

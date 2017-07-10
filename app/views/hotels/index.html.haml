@@ -1,0 +1,8 @@
+= render 'layouts/header'
+- content_for :title, "Список отелей"
+%p
+  .autopagerize_page_element
+    - @hotels.each do |hotel|
+      %p= render partial: "hotel_panel", locals: {hotel: hotel}       
+%div{:style=>"text-align:center"}
+  = paginate @hotels

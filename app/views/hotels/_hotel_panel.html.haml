@@ -1,0 +1,29 @@
+%article  
+  .container-fluid.hotel_panel
+    %a{:href => "hotels/#{hotel.id}"}
+      .row
+        %header
+          %h3.hotel_panel_header
+            =hotel.name
+          %p{:style=>"display:inline"}
+            Пользовательский рейтинг:
+          =hotel_rating hotel                
+      .row
+        .col-xs-5.hotel_panel_image.well
+          =hotel_image hotel
+        .col-xs-7.hotel_panel_description
+          %p
+            Адрес: 
+            =hotel.address
+          %p{:style=>"display:inline"} 
+            Звездный рейтинг: 
+            =hotel_star_rating hotel
+          %p
+            Цена номера:
+            =hotel.price
+          %p
+            =hotel.description
+      .row
+        %p
+          Отель добавлен пользователем: 
+          =hotel.user.email

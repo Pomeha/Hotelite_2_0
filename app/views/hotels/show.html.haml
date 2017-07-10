@@ -1,0 +1,56 @@
+= render 'layouts/header'
+- content_for :title, @hotel.name
+%article
+  %header
+    %h2
+      =@hotel.name
+    %p{:style=>"display:inline"}
+      Пользовательский рейтинг:
+    =hotel_rating @hotel  
+  .row
+    .hotel_page_image.well
+      =hotel_image @hotel
+  .row
+    %p
+      Адрес:
+      =@hotel.address
+    %p{:style=>"display:inline"} 
+      Звездный рейтинг:
+      = hotel_star_rating @hotel
+    - if @hotel.breakfest == true
+      %p Завтрак включен в цену
+    - else
+      %p Завтрак не включен в цену
+    %p
+      Описание:
+      =@hotel.description
+    %p
+      Цена комнаты: 
+      =@hotel.price
+    - if !@hotel.room.blank?
+      %p
+        Описание комнаты:
+        =@hotel.room
+  .row
+    %p
+      Отель добавлен пользователем:
+      =@hotel.user.email
+  .row
+    - if user_signed_in? && @hotel.user_id == current_user.id
+      %div{:style=>"text-align: right"}
+        %div.btn-group
+          = link_to 'Удалить', @hotel, method: :delete, data: { confirm: 'Вы уверены?' },class:"btn btn-primary"
+          = link_to 'Редактировать', edit_hotel_path(@hotel),class:"btn btn-primary"
+
+%article
+  %header{:style=>"text-align:center"}
+    %h3 Отзывы
+  -if user_signed_in? && @hotel.reviews.where(user_id: current_user.id).empty?
+    =render 'reviews/review_form'
+  -elsif user_signed_in?
+    %p Вы уже оставили свой отзыв.
+  -else
+    %p Войдите или зарегистрируйтесь для написания отзыва
+  - if @hotel.reviews.count>0 
+    - @hotel.reviews.each do |review|
+      = render 'reviews/review', review: review

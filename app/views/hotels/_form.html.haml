@@ -1,0 +1,54 @@
+%article 
+  .form-horizontal
+    = simple_form_for @hotel do |f|
+      = f.input :name,
+        label: "Название отеля", 
+        required: true, 
+        input_html: { class: "form-control" },
+        label_html: { class: 'form-label' }
+      = f.input :star,
+        label: "Звездный рейтинг",
+        :include_blank => "Отсутствует", 
+        collection: 1..5, 
+        prompt: "Выберите рейтинг отеля", 
+        required: true, 
+        input_html: { class: "form-control" },
+        label_html: { class: 'form-label' }
+      = f.input :breakfest,
+        label: "Завтрак включен", 
+        as: :boolean, 
+        input_html: { class: "form-control" },
+        label_html: { class: 'form-label' }
+      = f.input :address,
+        label: "Адрес отеля", 
+        required: true, 
+        input_html: { class: "form-control" },
+        label_html: { class: 'form-label' }
+      = f.input :description,
+        label: "Описание отеля", 
+        as: :text, 
+        required: true,
+        input_html: { class: "form-control" },
+        label_html: {  class: 'form-label' }
+      = f.input :room,
+        label: "Описание номера", 
+        as: :text, 
+        input_html: { class: "form-control" },
+        label_html: {  class: 'form-label' }
+      = f.input :price,
+        label: "Цена номера", 
+        required: true, 
+        input_html: { class: "form-control" },
+        label_html: {  class: 'form-label' }
+      .field
+        = f.input :image,
+          label: "Изображение", 
+          class:"btn btn-default",
+          as: :image_preview, 
+          input_html: { preview_version: :thumb },
+          label_html: {  class: 'form-label' }
+      %div{:style=>"text-align:center"}
+        = f.button :submit,
+          "Создать запись", 
+          class:"btn btn-primary"
+        = link_to 'Отмена', :back, class:"btn btn-primary"

@@ -1,0 +1,23 @@
+
+
+.hotel_panel_description,.hotel_panel_image img{
+    max-height: 30vh;
+}
+
+.hotel_panel_description{
+    overflow: hidden;
+}
+
+
+.hotel_panel:hover{
+    background-color: #eee;
+}
+
+.hotel_panel_header{
+    overflow:hidden;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
