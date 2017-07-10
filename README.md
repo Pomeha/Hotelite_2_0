@@ -1,24 +1,10 @@
-# README
+# This is new life of Project Hotelite #
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## We will make hotel advisiring great again ##
 
-Things you may want to cover:
+![Best app for Hotel Advisiring](http://aviasovet.ru/blog/wp-content/uploads/2013/05/the-intercontinental-hong-kong.jpg)
 
-* Ruby version
+### Powered by ###
+![Ruby on rails art](https://uploads.toptal.io/blog/image/388/toptal-blog-image-1399299014661.png)
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![I'm stabled version of hotelite](http://hotelite.herokuapp.com/)
