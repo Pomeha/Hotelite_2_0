@@ -54,6 +54,29 @@ class Admin::HotelsController < ApplicationController
     end
   end
 
+  def approve_hotel
+    @hotel=Hotel.find(params[:id])
+    @hotel.status="approved"
+    respond_to do |format|
+      if @hotel.save
+        format.html { redirect_to admin_hotels_path, notice: 'Hotel was successfully updated.' }
+      else
+        format.html { render action: 'edit' }
+      end
+    end
+  end
+  def reject_hotel
+    @hotel=Hotel.find(params[:id])
+    @hotel.status="rejected"
+    respond_to do |format|
+      if @hotel.save
+        format.html { redirect_to admin_hotels_path, notice: 'Hotel was successfully updated.' }
+      else
+        format.html { render action: 'edit' }
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_hotel
@@ -62,6 +85,7 @@ class Admin::HotelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def hotel_params
-      params.require(:hotel).permit(:name, :star, :address, :description, :price, :room, :breakfes)
+      params.fetch(:hotel, {})
+      params.require(:hotel).permit(:name, :star, :address, :description, :price, :room, :breakfest)
     end
 end

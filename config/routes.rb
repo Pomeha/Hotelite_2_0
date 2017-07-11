@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   devise_for :admin
   namespace :admin do
-    resources :hotels
+    resources :hotels do
+      member do
+        put :approve_hotel
+        put :reject_hotel
+      end
+    end
     resources :users
   end
 

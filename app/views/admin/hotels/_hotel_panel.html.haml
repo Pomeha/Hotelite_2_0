@@ -29,5 +29,5 @@
       -if hotel.status == "pending"
         .row
           %div.btn-group
-            = link_to 'Удалить', @hotel, method: :delete, data: { confirm: 'Вы уверены?' },class:"btn btn-primary"
-            = link_to 'Редактировать', edit_hotel_path(@hotel),class:"btn btn-primary"
+            = link_to 'up', approve_hotel_admin_hotel_path(hotel),class:"btn btn-primary",method: :put
+            = link_to 'down', reject_hotel_admin_hotel_path(hotel),class:"btn btn-primary",method: :put

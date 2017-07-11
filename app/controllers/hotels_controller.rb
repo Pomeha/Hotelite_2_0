@@ -39,12 +39,12 @@ class HotelsController < ApplicationController
   def create
     @hotel = Hotel.new(hotel_params)
     @hotel.rate=0;
-    @hotel.status="approved"
+    @hotel.status="pending"
     @hotel.user_id = current_user.id
 
     respond_to do |format|
       if @hotel.save
-        format.html { redirect_to @hotel, notice: 'Hotel was successfully created.' }
+        format.html { redirect_to hotels_path, notice: 'Hotel was successfully created.' }
       else
         format.html { render :new }
       end
