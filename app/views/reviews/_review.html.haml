@@ -7,6 +7,10 @@
       %p{:style=>"display:inline"}
         Оценка:
       =hotel_rating review
+      - if user_signed_in? && review.user_id == user.id
+        %div{:style=>"text-align: right; display: inline"}
+          %div.btn-group
+            = link_to 'Удалить', hotel_review_path(hotel,review),class:"btn btn-primary",method: :delete, data: { confirm: 'Вы уверены?' }
   .row
     .col-xs-12
       =review.review

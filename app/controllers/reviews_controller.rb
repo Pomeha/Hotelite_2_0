@@ -23,8 +23,9 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @review = @hotel.find(params[:id])
+    @hotel = Hotel.find(params[:hotel_id])
     @review = @hotel.reviews.find(params[:id])
+    @review.destroy
     respond_to do |format|
       if current_user.admin == true
         format.html { redirect_to @hotel, notice: 'Review was successfully destroyed.' }
@@ -33,6 +34,11 @@ class ReviewsController < ApplicationController
       end
     end
   end
+
+  def edit
+    @review = Review.find(params[:id])
+  end
+
 
   private
 
