@@ -1,31 +1,54 @@
-= form_for([:admin, @hotel]) do |f|
-  - if @hotel.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@hotel.errors.count, "error")} prohibited this hotel from being saved:"
-      %ul
-        - @hotel.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :star
-    = f.number_field :star
-  .field
-    = f.label :address
-    = f.text_field :address
-  .field
-    = f.label :description
-    = f.text_area :description
-  .field
-    = f.label :price
-    = f.number_field :price
-  .field
-    = f.label :room
-    = f.text_area :room
-  .field
-    = f.label :breakfes
-    = f.check_box :breakfes
-  .actions
-    = f.submit 'Save'
+%article 
+  .form-horizontal
+    = simple_form_for @hotel do |f|
+      = f.input :name,
+        label: "Название отеля", 
+        required: true, 
+        input_html: { class: "form-control" },
+        label_html: { class: 'form-label' }
+      = f.input :star,
+        label: "Звездный рейтинг",
+        :include_blank => "Отсутствует", 
+        collection: 1..5, 
+        prompt: "Выберите рейтинг отеля", 
+        required: true, 
+        input_html: { class: "form-control" },
+        label_html: { class: 'form-label' }
+      = f.input :breakfest,
+        label: "Завтрак включен", 
+        as: :boolean, 
+        input_html: { class: "form-control" },
+        label_html: { class: 'form-label' }
+      = f.input :address,
+        label: "Адрес отеля", 
+        required: true, 
+        input_html: { class: "form-control" },
+        label_html: { class: 'form-label' }
+      = f.input :description,
+        label: "Описание отеля", 
+        as: :text, 
+        required: true,
+        input_html: { class: "form-control" },
+        label_html: {  class: 'form-label' }
+      = f.input :room,
+        label: "Описание номера", 
+        as: :text, 
+        input_html: { class: "form-control" },
+        label_html: {  class: 'form-label' }
+      = f.input :price,
+        label: "Цена номера", 
+        required: true, 
+        input_html: { class: "form-control" },
+        label_html: {  class: 'form-label' }
+      .field
+        = f.input :image,
+          label: "Изображение", 
+          class:"btn btn-default",
+          as: :image_preview, 
+          input_html: { preview_version: :thumb },
+          label_html: {  class: 'form-label' }
+      %div{:style=>"text-align:center"}
+        = f.button :submit,
+          "Создать запись", 
+          class:"btn btn-primary"
+        = link_to 'Отмена', :back, class:"btn btn-primary"

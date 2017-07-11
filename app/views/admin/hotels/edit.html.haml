@@ -1,7 +1,10 @@
-%h1 Editing hotel
+= render 'layouts/header'
+- content_for :title, @hotel.name
+%article
+  %h3 Редактирование отеля
 
 = render 'form'
 
-= link_to 'Show', [:admin, @hotel]
-\|
-= link_to 'Back', admin_hotels_path
+/= link_to 'Show', @hotel
+
+/= link_to 'Back', hotels_path
