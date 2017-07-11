@@ -6,11 +6,11 @@
     = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .form-inputs
         = f.input :email,
-          required: false, 
+          required: false,
           autofocus: true,
           input_html: { class: "form-control" },
           label_html: { class: 'form-label' }
-        = f.input :password, 
+        = f.input :password,
           label: "Пароль",
           required: false,
           input_html: { class: "form-control" },
