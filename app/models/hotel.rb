@@ -1,6 +1,6 @@
 class Hotel < ApplicationRecord
 	belongs_to :user
-	has_many :reviews
+	has_many :reviews,:dependent => :destroy
 	paginates_per 5
 	mount_uploader :image, ImageUploader
 	validates :name, :presence => true,length: { maximum: 50}
