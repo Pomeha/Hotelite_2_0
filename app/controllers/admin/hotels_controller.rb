@@ -1,4 +1,5 @@
 class Admin::HotelsController < ApplicationController
+  before_action :authenticate_admin!
   before_action :set_hotel, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/hotels

@@ -10,6 +10,12 @@
         %li
           #{link_to 'Новый отель', new_hotel_path}
     %ul.nav.navbar-nav.navbar-right
+      - if admin_signed_in?
+        %li
+          #{link_to 'Одмен', new_admin_session_path}
+      - else
+        %li
+          #{link_to 'Администрирование', users_path}
       - if user_signed_in?
         %li.dropdown-toggle{"data-toggle"=>"dropdown"}
           #{link_to current_user.email}
