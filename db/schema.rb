@@ -10,9 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20170711120431) do
-=======
 ActiveRecord::Schema.define(version: 20170711122808) do
 
   create_table "admins", force: :cascade do |t|
@@ -31,7 +28,6 @@ ActiveRecord::Schema.define(version: 20170711122808) do
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
->>>>>>> DeviseAdmin
 
   create_table "hotels", force: :cascade do |t|
     t.string "name"

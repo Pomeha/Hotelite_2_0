@@ -5216,3 +5216,384 @@ Processing by HotelsController#index as HTML
 Completed 200 OK in 421ms (Views: 398.9ms | ActiveRecord: 2.2ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-07-11 17:04:19 +0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.1.2) lib/active_record/migration.rb:576:in `check_pending!'
+activerecord (5.1.2) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.2) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.2) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.2) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "admins"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (91.5ms)[0m  [1m[35mCREATE TABLE "admins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (98.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_admins_on_email" ON "admins" ("email")[0m
+  [1m[35m (0.3ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_admins_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_admins_on_email' AND type='index'
+[0m
+  [1m[35m (100.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_admins_on_reset_password_token" ON "admins" ("reset_password_token")[0m
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "hotels"[0m
+  [1m[35m (98.9ms)[0m  [1m[35mCREATE TABLE "hotels" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "star" integer, "breakfest" boolean, "address" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "description" varchar, "image" varchar, "user_id" integer, "room" text, "price" integer, "rate" integer, "status" varchar)[0m
+  [1m[35m (122.1ms)[0m  [1m[35mCREATE  INDEX "index_hotels_on_user_id" ON "hotels" ("user_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "reviews"[0m
+  [1m[35m (111.9ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "rate" integer, "review" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "hotel_id" integer)[0m
+  [1m[35m (107.6ms)[0m  [1m[35mCREATE  INDEX "index_reviews_on_hotel_id" ON "reviews" ("hotel_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reviews_on_hotel_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reviews_on_hotel_id' AND type='index'
+[0m
+  [1m[35m (120.4ms)[0m  [1m[35mCREATE  INDEX "index_reviews_on_user_id" ON "reviews" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (87.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "admin" boolean DEFAULT 'f')[0m
+  [1m[35m (121.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.3ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (87.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (110.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (67.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170711122808)[0m
+  [1m[35m (82.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20170705020031),
+(20170706132027),
+(20170628235935),
+(20170711120431),
+(13370704035021),
+(10170628235422),
+(20170701203718),
+(20170628233746),
+(20170701155457),
+(20170704163050),
+(20170704050953),
+(20170628224129),
+(20170629002815);
+
+[0m
+  [1m[35m (116.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (8.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-07-11 14:04:37.194913"], ["updated_at", "2017-07-11 14:04:37.194913"]]
+  [1m[35m (86.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "admins"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (93.0ms)[0m  [1m[35mCREATE TABLE "admins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (101.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_admins_on_email" ON "admins" ("email")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_admins_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_admins_on_email' AND type='index'
+[0m
+  [1m[35m (98.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_admins_on_reset_password_token" ON "admins" ("reset_password_token")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "hotels"[0m
+  [1m[35m (86.2ms)[0m  [1m[35mCREATE TABLE "hotels" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "star" integer, "breakfest" boolean, "address" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "description" varchar, "image" varchar, "user_id" integer, "room" text, "price" integer, "rate" integer, "status" varchar)[0m
+  [1m[35m (100.0ms)[0m  [1m[35mCREATE  INDEX "index_hotels_on_user_id" ON "hotels" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "reviews"[0m
+  [1m[35m (87.1ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "rate" integer, "review" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "hotel_id" integer)[0m
+  [1m[35m (88.8ms)[0m  [1m[35mCREATE  INDEX "index_reviews_on_hotel_id" ON "reviews" ("hotel_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reviews_on_hotel_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reviews_on_hotel_id' AND type='index'
+[0m
+  [1m[35m (110.9ms)[0m  [1m[35mCREATE  INDEX "index_reviews_on_user_id" ON "reviews" ("user_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (132.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "admin" boolean DEFAULT 'f')[0m
+  [1m[35m (110.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.4ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (131.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (109.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (80.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170711122808)[0m
+  [1m[35m (66.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20170705020031),
+(20170706132027),
+(20170628235935),
+(20170711120431),
+(13370704035021),
+(10170628235422),
+(20170701203718),
+(20170628233746),
+(20170701155457),
+(20170704163050),
+(20170704050953),
+(20170628224129),
+(20170629002815);
+
+[0m
+  [1m[35m (128.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-07-11 14:04:38.859732"], ["updated_at", "2017-07-11 14:04:38.859732"]]
+  [1m[35m (117.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2017-07-11 17:04:51 +0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HotelsController#top as HTML
+  Rendering hotels/top.html.haml within layouts/application
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.haml (16.8ms)
+  [1m[36mHotel Load (0.3ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."status" = ? ORDER BY "hotels"."rate" DESC LIMIT ?[0m  [["status", "approved"], ["LIMIT", 5]]
+  Rendered hotels/top.html.haml within layouts/application (26.6ms)
+Completed 200 OK in 418ms (Views: 390.8ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2017-07-11 17:04:56 +0300
+Processing by Admin::UsersController#index as HTML
+Completed 401 Unauthorized in 10ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/sign_in" for 127.0.0.1 at 2017-07-11 17:04:56 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (7.2ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (71.3ms)
+Completed 200 OK in 162ms (Views: 141.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/sign_in" for 127.0.0.1 at 2017-07-11 17:04:58 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KpcJ2gHjGaEezFwiHwxLYxvYy5cENMMSPaN7q4wS59fL/SDo4fWeqxMJiPbo81UXNY0l6kCMiBIZzU3LTkMIJw==", "admin"=>{"email"=>"admin@admin.admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Войти"}
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."email" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["email", "admin@admin.admin"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.3ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KpcJ2gHjGaEezFwiHwxLYxvYy5cENMMSPaN7q4wS59fL/SDo4fWeqxMJiPbo81UXNY0l6kCMiBIZzU3LTkMIJw==", "admin"=>{"email"=>"admin@admin.admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Войти"}
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (7.7ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (20.4ms)
+Completed 200 OK in 333ms (Views: 89.3ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (8.3ms)[0m  [1m[32mINSERT INTO "admins" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "admin@admin.admin"], ["encrypted_password", "$2a$11$uC9r59uPB1ZNDm8aestAe.ekH8x5YDbpceXbXToRLF1tsiRs8svIu"], ["created_at", "2017-07-11 14:05:14.324454"], ["updated_at", "2017-07-11 14:05:14.324454"]]
+  [1m[35m (64.3ms)[0m  [1m[36mcommit transaction[0m
+Started POST "/admin/sign_in" for 127.0.0.1 at 2017-07-11 17:05:17 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"24vzpnK4zAMqlac+uHMAS3fxGLvftJ15mtH7DjZJm2gSbnhpzq+DNq8qxbpNVuePZERfuZ4Pw3EsyFAqRNEdJg==", "admin"=>{"email"=>"admin@admin.admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Войти"}
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."email" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["email", "admin@admin.admin"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[33mUPDATE "admins" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "admins"."id" = ?[0m  [["current_sign_in_at", "2017-07-11 14:05:18.161052"], ["last_sign_in_at", "2017-07-11 14:05:18.161052"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2017-07-11 14:05:18.162984"], ["id", 1]]
+  [1m[35m (80.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/admin/users
+Completed 302 Found in 336ms (ActiveRecord: 82.3ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2017-07-11 17:05:18 +0300
+Processing by Admin::UsersController#index as HTML
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering admin/users/index.html.haml within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered admin/users/_users.html.haml (5.7ms)
+  Rendered admin/users/index.html.haml within layouts/application (9.9ms)
+Completed 200 OK in 115ms (Views: 108.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/admin/hotels" for 127.0.0.1 at 2017-07-11 17:05:25 +0300
+Processing by Admin::HotelsController#index as HTML
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering admin/hotels/index.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (10.2ms)
+  [1m[36mHotel Load (0.4ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" ORDER BY "hotels"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  Rendered admin/hotels/index.html.haml within layouts/application (31.1ms)
+Completed 200 OK in 125ms (Views: 117.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/sign_out" for 127.0.0.1 at 2017-07-11 17:05:28 +0300
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 28ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-11 17:05:28 +0300
+Processing by HotelsController#top as HTML
+  Rendering hotels/top.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (7.9ms)
+  [1m[36mHotel Load (0.4ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."status" = ? ORDER BY "hotels"."rate" DESC LIMIT ?[0m  [["status", "approved"], ["LIMIT", 5]]
+  Rendered hotels/top.html.haml within layouts/application (12.9ms)
+Completed 200 OK in 87ms (Views: 85.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2017-07-11 17:05:31 +0300
+Processing by Admin::UsersController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/sign_in" for 127.0.0.1 at 2017-07-11 17:05:31 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (7.8ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (23.9ms)
+Completed 200 OK in 114ms (Views: 112.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/sign_in" for 127.0.0.1 at 2017-07-11 17:05:32 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZUY+X3se3TcZ22YyOPPny/aOMMOXbIHJqebbm37lL09SIc7V6cKC/JgXLouWkHqqyExdftsGDm0n/Uf41xObLQ==", "admin"=>{"email"=>"admin@admin.admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Войти"}
+  [1m[36mAdmin Load (2.4ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."email" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["email", "admin@admin.admin"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.4ms)[0m  [1m[33mUPDATE "admins" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "admins"."id" = ?[0m  [["current_sign_in_at", "2017-07-11 14:05:33.111906"], ["sign_in_count", 2], ["updated_at", "2017-07-11 14:05:33.114091"], ["id", 1]]
+  [1m[35m (141.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/admin/users
+Completed 302 Found in 396ms (ActiveRecord: 146.7ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2017-07-11 17:05:33 +0300
+Processing by Admin::UsersController#index as HTML
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering admin/users/index.html.haml within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered admin/users/_users.html.haml (4.5ms)
+  Rendered admin/users/index.html.haml within layouts/application (13.4ms)
+Completed 200 OK in 119ms (Views: 106.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admin/hotels" for 127.0.0.1 at 2017-07-11 17:05:37 +0300
+Processing by Admin::HotelsController#index as HTML
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering admin/hotels/index.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (16.8ms)
+  [1m[36mHotel Load (0.4ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" ORDER BY "hotels"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  Rendered admin/hotels/index.html.haml within layouts/application (29.7ms)
+Completed 200 OK in 120ms (Views: 109.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/sign_out" for 127.0.0.1 at 2017-07-11 17:05:39 +0300
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 12ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-11 17:05:39 +0300
+Processing by HotelsController#top as HTML
+  Rendering hotels/top.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (6.9ms)
+  [1m[36mHotel Load (0.3ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."status" = ? ORDER BY "hotels"."rate" DESC LIMIT ?[0m  [["status", "approved"], ["LIMIT", 5]]
+  Rendered hotels/top.html.haml within layouts/application (14.3ms)
+Completed 200 OK in 100ms (Views: 97.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2017-07-11 17:05:50 +0300
+Processing by Admin::UsersController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/sign_in" for 127.0.0.1 at 2017-07-11 17:05:51 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (12.4ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (30.8ms)
+Completed 200 OK in 109ms (Views: 107.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/sign_in" for 127.0.0.1 at 2017-07-11 17:06:56 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (7.6ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (24.5ms)
+Completed 200 OK in 123ms (Views: 120.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/sign_in" for 127.0.0.1 at 2017-07-11 17:06:59 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"C4WkXWjIqj1srCbgBcNYcG3Ytlx2K1rZvbb7dpFheHsO2mmtWBn7TvrRCbIiYUCpUFSpT8jSACsiKvVd6d88KA==", "admin"=>{"email"=>"admin@admin.admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Войти"}
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."email" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["email", "admin@admin.admin"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "admins" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "admins"."id" = ?[0m  [["current_sign_in_at", "2017-07-11 14:06:59.654787"], ["last_sign_in_at", "2017-07-11 14:05:33.111906"], ["sign_in_count", 3], ["updated_at", "2017-07-11 14:06:59.655771"], ["id", 1]]
+  [1m[35m (59.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/admin/users
+Completed 302 Found in 314ms (ActiveRecord: 60.5ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2017-07-11 17:06:59 +0300
+Processing by Admin::UsersController#index as HTML
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering admin/users/index.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (9.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered admin/users/_users.html.haml (3.8ms)
+  Rendered admin/users/index.html.haml within layouts/application (18.2ms)
+Completed 200 OK in 111ms (Views: 101.7ms | ActiveRecord: 0.7ms)
+
+

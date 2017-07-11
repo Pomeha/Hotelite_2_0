@@ -13,6 +13,8 @@
       - if admin_signed_in?
         %li
           #{link_to 'Одмен', new_admin_session_path}
+        %li
+          #{link_to 'Выйти',destroy_admin_session_path}
       - else
         %li
           #{link_to 'Администрирование', users_path}
