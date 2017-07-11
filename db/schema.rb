@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 20170711122808) do
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
-ActiveRecord::Schema.define(version: 20170711120431) do
 
   create_table "hotels", force: :cascade do |t|
     t.string "name"
