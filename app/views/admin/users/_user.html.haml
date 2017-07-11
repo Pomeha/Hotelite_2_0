@@ -2,6 +2,8 @@ ID
 =user.id
 email
 =user.email
+Name
+=user.name
 %div.btn-group
   = link_to "Удалить", user, method: :delete, data: {confirm: "Вы уверены?"},class:"btn btn-primary"
   = link_to "Редактирвоать", edit_admin_user_path(user),class:"btn btn-rpimary"

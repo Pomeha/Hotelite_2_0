@@ -1,3 +1,13 @@
-    = simple_form_for @admin_user do |f|
-      = f.input :email,
-        label: "Email"
+= simple_form_for @admin_user do |f|
+  Email
+  = f.input :email
+  Name
+  = f.input :name
+  Password
+  = f.input :password
+  Password confirm
+  = f.input :password_confirmation
+  = f.button :submit,
+    "Создать запись",
+    class:"btn btn-primary"
+  = link_to 'Отмена', :back, class:"btn btn-primary"

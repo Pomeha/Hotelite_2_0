@@ -1,6 +1,6 @@
 class Admin::HotelsController < ApplicationController
   before_action :authenticate_admin!
-  before_action :set_hotel, only: [:show, :edit, :update, :destroy]
+  before_action :set_hotel, only: %i[show edit update destroy]
 
   # GET /admin/hotels
   def index
@@ -55,13 +55,14 @@ class Admin::HotelsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_hotel
-      @hotel = Hotel.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def hotel_params
-      params.require(:hotel).permit(:name, :star, :address, :description, :price, :room, :breakfes)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_hotel
+    @hotel = Hotel.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def hotel_params
+    params.require(:hotel).permit(:name, :star, :address, :description, :price, :room, :breakfes)
+  end
 end

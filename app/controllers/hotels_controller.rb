@@ -8,7 +8,6 @@ class HotelsController < ApplicationController
   end
 
   # GET /hotels/1
-  # GET /hotels/1.json
   def top
     @hotels = Hotel.where(status: "approved").order(rate: :desc).limit(5);
   end

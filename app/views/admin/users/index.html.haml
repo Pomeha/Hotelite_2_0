@@ -1,8 +1,8 @@
 = render 'layouts/header'
-%h2 User index
+-#%span.prev.disabled= raw(t 'views.pagination.previous')
 %p
+%div{:style=>"text-align:center"}
   - @admin_users.each do |user|
     %p= render partial: "user", locals: {user: user}
-  %div{:style=>"text-align:center"}
-    User
-    = paginate @admin_users
+%div{:style=>"text-align:center"}
+  =paginate @admin_users

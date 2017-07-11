@@ -20,6 +20,7 @@ gem 'simple_form'
 gem 'bootstrap-sass'
 gem 'has_scope'
 gem 'russian', '~> 0.6.0'
+gem 'jquery-rails'
 
 group :development do
   gem 'sqlite3'

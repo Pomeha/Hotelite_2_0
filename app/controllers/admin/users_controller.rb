@@ -4,7 +4,7 @@ class Admin::UsersController < ApplicationController
 
   # GET /admin/users
   def index
-    @admin_users = User.order(:id).page(params[:page])
+    @admin_users = User.order("email").page(params[:page]).per(5)
   end
 
   # GET /admin/users/1
@@ -61,7 +61,6 @@ class Admin::UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_user_params
-      params.fetch(:admin_user, {})
-      params.require(:admin_user).permit(:email, :password, :password_confirmation, :id)
+      params.require(:user).permit(:email, :name, :password, :password_confirmation, :id)
     end
 end
