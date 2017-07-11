@@ -4,10 +4,7 @@
       .row
         %header
           %h3.hotel_panel_header
-            =hotel.name
-          %p{:style=>"display:inline"}
-            Пользовательский рейтинг:
-          =hotel_rating hotel                
+            =hotel.name               
       .row
         .col-xs-5.hotel_panel_image.well
           =hotel_image hotel
@@ -27,3 +24,8 @@
         %p
           Отель добавлен пользователем: 
           =hotel.user.email
+      -if hotel.status == "pending"
+        .row
+          %div.btn-group
+            = link_to 'Удалить', @hotel, method: :delete, data: { confirm: 'Вы уверены?' },class:"btn btn-primary"
+            = link_to 'Редактировать', edit_hotel_path(@hotel),class:"btn btn-primary"
