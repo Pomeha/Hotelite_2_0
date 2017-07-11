@@ -10,7 +10,10 @@ capybara-*.html
 /spec/tmp
 *.orig
 rerun.txt
-pickle-email-*.html
+pickle-email-*.
+schema.rb
+*.sqlite3
+*.log
 
 # TODO Comment out this rule if you are OK with secrets being uploaded to the repo
 config/initializers/secret_token.rb
