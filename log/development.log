@@ -3519,6 +3519,10 @@ Completed 200 OK in 402ms (Views: 387.8ms | ActiveRecord: 5.7ms)
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> DeviseAdmin
 Started GET "/hotels/4" for 127.0.0.1 at 2017-07-11 14:38:58 +0300
   [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 Processing by HotelsController#show as HTML
@@ -5877,6 +5881,7 @@ Completed 200 OK in 238ms (Views: 216.6ms | ActiveRecord: 1.8ms)
 >>>>>>> f7d0091cc62258ba2714b1d1eade0275385364fe
 
 
+<<<<<<< HEAD
 Started GET "/" for 127.0.0.1 at 2017-07-11 17:11:57 +0300
   [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 Processing by HotelsController#top as HTML
@@ -6352,3 +6357,6 @@ Completed 200 OK in 307ms (Views: 293.6ms | ActiveRecord: 2.6ms)
 
 =======
 >>>>>>> origin
+=======
+>>>>>>> AdminHotels
+>>>>>>> DeviseAdmin
