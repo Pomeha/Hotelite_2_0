@@ -1,5 +1,8 @@
 = render 'layouts/header'
 %h2 User index
 %p
-  User
-%p= render partial: "users", locals: {users: @admin_users}
+  - @admin_users.each do |user|
+    %p= render partial: "user", locals: {user: user}
+  %div{:style=>"text-align:center"}
+    User
+    = paginate @admin_users
