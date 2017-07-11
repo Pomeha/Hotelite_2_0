@@ -10,8 +10,6 @@ end
 gem 'rails', '~> 5.1.2'
 # Use sqlite3 as the database for Active Record
 
-gem 'bootstrap-sass'
-
 gem 'active_model_serializers'
 gem 'devise'
 gem 'mini_magick'

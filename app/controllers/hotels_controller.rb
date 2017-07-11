@@ -4,17 +4,20 @@ class HotelsController < ApplicationController
   # GET /hotels
   # GET /hotels.json
   def index
-    @hotels = Hotel.order(created_at: :desc).page(params[:page])
+    @hotels = Hotel.where(status: "approved").order(created_at: :desc).page(params[:page])
   end
 
   # GET /hotels/1
   # GET /hotels/1.json
   def top
-    @hotels = Hotel.order(rate: :desc).limit(5);
+    @hotels = Hotel.where(status: "approved").order(rate: :desc).limit(5);
   end
 
   def show
     @hotel = Hotel.find(params[:id])
+    if @hotel.status != "approved"
+      raise ActionController::RoutingError.new('Not Found')
+    end
     #@reviews = Reviews.find(params[:id]) Studying this point
   end
 
@@ -26,6 +29,9 @@ class HotelsController < ApplicationController
   # GET /hotels/1/edit
   def edit
     @hotel = Hotel.find(params[:id])
+    if @hotel.status != "approved"
+      raise ActionController::RoutingError.new('Not Found')
+    end
   end
 
   # POST /hotels
@@ -33,6 +39,7 @@ class HotelsController < ApplicationController
   def create
     @hotel = Hotel.new(hotel_params)
     @hotel.rate=0;
+    @hotel.status="approved"
     @hotel.user_id = current_user.id
 
     respond_to do |format|
