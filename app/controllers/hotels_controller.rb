@@ -5,6 +5,10 @@ class HotelsController < ApplicationController
   # GET /hotels.json
   def index
     @hotels = Hotel.where(status: "approved").order(created_at: :desc).page(params[:page])
+    respond_to do |format|
+        format.js    
+        format.html    
+    end
   end
 
   # GET /hotels/1
@@ -44,7 +48,7 @@ class HotelsController < ApplicationController
 
     respond_to do |format|
       if @hotel.save
-        format.html { redirect_to hotels_path, notice: 'Hotel was successfully created.' }
+        format.html { redirect_to hotels_path, notice: 'Отель был создан.' }
       else
         format.html { render :new }
       end
@@ -56,7 +60,7 @@ class HotelsController < ApplicationController
   def update
     respond_to do |format|
       if @hotel.update(hotel_params)
-        format.html { redirect_to @hotel, notice: 'Hotel was successfully updated.' }
+        format.html { redirect_to @hotel, notice: 'Отель обновлен.' }
       else
         format.html { render :edit }
       end
@@ -68,7 +72,7 @@ class HotelsController < ApplicationController
   def destroy
     @hotel.destroy
     respond_to do |format|
-      format.html { redirect_to hotels_path, notice: 'Hotel was successfully destroyed.' }
+      format.html { redirect_to hotels_path, notice: 'Отель удален.' }
     end
   end
 
