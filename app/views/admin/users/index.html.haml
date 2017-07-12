@@ -1,8 +1,0 @@
-= render 'layouts/header'
--#%span.prev.disabled= raw(t 'views.pagination.previous')
-%p
-%div{:style=>"text-align:center"}
-  - @admin_users.each do |user|
-    %p= render partial: "user", locals: {user: user}
-%div{:style=>"text-align:center"}
-  =paginate @admin_users

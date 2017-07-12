@@ -1,14 +1,7 @@
 Rails.application.routes.draw do
   devise_for :admin
-  namespace :admin do
-    resources :hotels
-    resources :users
-  end
-
   devise_for :users
-  scope "/admin" do
-    resources :users
-  end
+
   #devise_for :users
   resources :hotels do
     resources :reviews
