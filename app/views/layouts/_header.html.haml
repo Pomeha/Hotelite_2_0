@@ -6,23 +6,10 @@
         #{link_to "Главная", root_path}
       %li
         #{link_to "Список отелей", hotels_path}
-      - if admin_signed_in?
-        %li
-          #{link_to "Управление пользователями", admin_users_path}
-        %li
-          #{link_to "Управление отелями", admin_hotels_path}
       - if user_signed_in?
         %li
           #{link_to 'Новый отель', new_hotel_path}
     %ul.nav.navbar-nav.navbar-right
-      - if admin_signed_in?
-        %li
-          #{link_to 'Одмен', new_admin_session_path}
-        %li
-          #{link_to 'Выйти',destroy_admin_session_path}
-      - else
-        %li
-          #{link_to 'Администрирование', users_path}
       - if user_signed_in?
         %li.dropdown-toggle{"data-toggle"=>"dropdown"}
           #{link_to current_user.email}
