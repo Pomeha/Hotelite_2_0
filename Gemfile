@@ -24,6 +24,7 @@ gem 'jquery-rails'
 gem 'administrate', :github => 'thoughtbot/administrate', :branch => 'master'
 
 group :development do
+  gem "erb2haml"
   gem 'sqlite3'
 end
 
