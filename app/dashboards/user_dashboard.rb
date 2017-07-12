@@ -33,8 +33,8 @@ class UserDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :hotels,
     :id,
+    :name,
     :email,
-    :encrypted_password,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -43,6 +43,7 @@ class UserDashboard < Administrate::BaseDashboard
     :hotels,
     :id,
     :email,
+    :name,
     :encrypted_password,
     :reset_password_token,
     :reset_password_sent_at,
@@ -54,7 +55,6 @@ class UserDashboard < Administrate::BaseDashboard
     :last_sign_in_ip,
     :created_at,
     :updated_at,
-    :name,
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -62,6 +62,7 @@ class UserDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :hotels,
+    :name,
     :email,
     :encrypted_password,
     :reset_password_token,
@@ -72,7 +73,6 @@ class UserDashboard < Administrate::BaseDashboard
     :last_sign_in_at,
     :current_sign_in_ip,
     :last_sign_in_ip,
-    :name,
   ].freeze
 
   # Overwrite this method to customize how users are displayed
