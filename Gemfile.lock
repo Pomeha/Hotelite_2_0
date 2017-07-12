@@ -1,3 +1,20 @@
+GIT
+  remote: https://github.com/thoughtbot/administrate.git
+  revision: 0ce7c5e87fe0b5f66db362fc4a3dba17c2a7f5d1
+  branch: master
+  specs:
+    administrate (0.7.0)
+      actionpack (>= 4.2, < 5.2)
+      actionview (>= 4.2, < 5.2)
+      activerecord (>= 4.2, < 5.2)
+      autoprefixer-rails (>= 6.0)
+      datetime_picker_rails (~> 0.0.7)
+      jquery-rails (>= 4.0)
+      kaminari (>= 1.0)
+      momentjs-rails (~> 2.8)
+      sass-rails (~> 5.0)
+      selectize-rails (~> 0.6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -78,6 +95,8 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+    datetime_picker_rails (0.0.7)
+      momentjs-rails (>= 2.8.1)
     devise (4.3.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -143,6 +162,8 @@ GEM
     mini_magick (4.8.0)
     mini_portile2 (2.2.0)
     minitest (5.10.2)
+    momentjs-rails (2.17.1)
+      railties (>= 3.1)
     multi_json (1.12.1)
     nio4r (2.1.0)
     nokogiri (1.8.0)
@@ -201,6 +222,7 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    selectize-rails (0.12.4)
     selenium-webdriver (3.4.3)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
@@ -250,6 +272,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  administrate!
   bootstrap-sass
   byebug
   capybara (~> 2.13)

@@ -21,6 +21,7 @@ gem 'bootstrap-sass'
 gem 'has_scope'
 gem 'russian', '~> 0.6.0'
 gem 'jquery-rails'
+gem 'administrate', :github => 'thoughtbot/administrate', :branch => 'master'
 
 group :development do
   gem 'sqlite3'
