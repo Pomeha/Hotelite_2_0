@@ -11,18 +11,8 @@ class UserDashboard < Administrate::BaseDashboard
     hotels: Field::HasMany,
     id: Field::Number,
     email: Field::String,
-    encrypted_password: Field::String,
-    reset_password_token: Field::String,
-    reset_password_sent_at: Field::DateTime,
-    remember_created_at: Field::DateTime,
-    sign_in_count: Field::Number,
-    current_sign_in_at: Field::DateTime,
-    last_sign_in_at: Field::DateTime,
-    current_sign_in_ip: Field::String,
-    last_sign_in_ip: Field::String,
-    created_at: Field::DateTime,
-    updated_at: Field::DateTime,
     name: Field::String,
+    password: Field::String,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -44,17 +34,6 @@ class UserDashboard < Administrate::BaseDashboard
     :id,
     :email,
     :name,
-    :encrypted_password,
-    :reset_password_token,
-    :reset_password_sent_at,
-    :remember_created_at,
-    :sign_in_count,
-    :current_sign_in_at,
-    :last_sign_in_at,
-    :current_sign_in_ip,
-    :last_sign_in_ip,
-    :created_at,
-    :updated_at,
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -64,15 +43,7 @@ class UserDashboard < Administrate::BaseDashboard
     :hotels,
     :name,
     :email,
-    :encrypted_password,
-    :reset_password_token,
-    :reset_password_sent_at,
-    :remember_created_at,
-    :sign_in_count,
-    :current_sign_in_at,
-    :last_sign_in_at,
-    :current_sign_in_ip,
-    :last_sign_in_ip,
+    :password
   ].freeze
 
   # Overwrite this method to customize how users are displayed

@@ -23,13 +23,20 @@ module Admin
 
   # PATCH/PUT /admin/users/1
     def update
-      respond_to do |format|
-        if @user.update(user_params)
-          format.html { redirect_to @admin_user, notice: 'User was successfully updated.' }
-        else
-          format.html { render :edit }
-        end
+      if params[:user][:password].blank?
+        params[:user].delete(:password)
+        params[:user].delete(:password_confirmation)
       end
+        if requested_resource.update(resource_params)
+          redirect_to(
+            [namespace, requested_resource],
+            notice: translate_with_resource("update.success"),
+          )
+        else
+          render :edit, locals: {
+            page: Administrate::Page::Form.new(dashboard, requested_resource),
+          }
+        end
     end
 
     private
