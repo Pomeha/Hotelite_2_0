@@ -7649,3 +7649,701 @@ Processing by Admin::UsersController#index as HTML
 Completed 200 OK in 115ms (Views: 111.8ms | ActiveRecord: 0.9ms)
 
 
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (113.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (94.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateHotels (10170628235422)
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "hotels" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "star" integer, "breakfest" boolean, "address" varchar, "photopath" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "10170628235422"]]
+  [1m[35m (74.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to DeviseCreateUsers (13370704035021)
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.5ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "13370704035021"]]
+  [1m[35m (139.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateReviews (20170628224129)
+  [1m[35m (2.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "rate" integer, "review" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (7.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170628224129"]]
+  [1m[35m (113.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddUserToReviews (20170628233746)
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (4.4ms)[0m  [1m[35mALTER TABLE "reviews" ADD "user_id" integer[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX "index_reviews_on_user_id" ON "reviews" ("user_id")[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170628233746"]]
+  [1m[35m (86.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddDescriptionToHotel (20170628235935)
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE "hotels" ADD "description" varchar[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170628235935"]]
+  [1m[35m (57.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddReferencesToReviews (20170629002815)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "reviews" ADD "hotel_id" integer[0m
+  [1m[35m (0.3ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reviews_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reviews_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX "index_reviews_on_hotel_id" ON "reviews" ("hotel_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170629002815"]]
+  [1m[35m (70.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddImageToHotel (20170701155457)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "hotels" ADD "image" varchar[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170701155457"]]
+  [1m[35m (60.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to RemovePhotopathFromHotels (20170701203718)
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ahotels" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar DEFAULT NULL, "star" integer DEFAULT NULL, "breakfest" boolean DEFAULT NULL, "address" varchar DEFAULT NULL, "photopath" varchar DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "description" varchar DEFAULT NULL, "image" varchar DEFAULT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "ahotels" ("id","name","star","breakfest","address","photopath","created_at","updated_at","description","image")
+                     SELECT "id","name","star","breakfest","address","photopath","created_at","updated_at","description","image" FROM "hotels"[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE "hotels"[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "hotels" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar DEFAULT NULL, "star" integer DEFAULT NULL, "breakfest" boolean DEFAULT NULL, "address" varchar DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "description" varchar DEFAULT NULL, "image" varchar DEFAULT NULL)[0m
+  [1m[35m (2.0ms)[0m  [1m[32mINSERT INTO "hotels" ("id","name","star","breakfest","address","created_at","updated_at","description","image")
+                     SELECT "id","name","star","breakfest","address","created_at","updated_at","description","image" FROM "ahotels"[0m
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE "ahotels"[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170701203718"]]
+  [1m[35m (94.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddUserIdToHotels (20170704050953)
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "hotels" ADD "user_id" integer[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX "index_hotels_on_user_id" ON "hotels" ("user_id")[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170704050953"]]
+  [1m[35m (90.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddRoomToHotels (20170704163050)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "hotels" ADD "room" text[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170704163050"]]
+  [1m[35m (63.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddPriceToHotels (20170705020031)
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.8ms)[0m  [1m[35mALTER TABLE "hotels" ADD "price" integer[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170705020031"]]
+  [1m[35m (57.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddRateToHotels (20170706132027)
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.4ms)[0m  [1m[35mALTER TABLE "hotels" ADD "rate" integer[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170706132027"]]
+  [1m[35m (79.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddStatusToHotels (20170711120431)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "hotels" ADD "status" varchar[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170711120431"]]
+  [1m[35m (60.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddNameToUsers (20170711182603)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "users" ADD "name" varchar[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170711182603"]]
+  [1m[35m (62.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddAdminToUsers (20170712141115)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE "users" ADD "admin" boolean[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170712141115"]]
+  [1m[35m (65.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-07-13 11:39:54.596138"], ["updated_at", "2017-07-13 11:39:54.596138"]]
+  [1m[35m (76.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_hotels_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_hotels_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.7ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reviews_on_hotel_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reviews_on_hotel_id' AND type='index'
+[0m
+  [1m[35m (0.6ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reviews_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reviews_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.7ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.7ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@admin.admin"], ["LIMIT", 1]]
+  [1m[35mSQL (4.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?, ?)[0m  [["email", "admin@admin.admin"], ["encrypted_password", "$2a$11$EC0Dl9Nzd5ZF64pGLE8JzOIGHMwjEFhftM3jVDqUxjwYA4Xdi4iyi"], ["created_at", "2017-07-13 11:41:43.903517"], ["updated_at", "2017-07-13 11:41:43.903517"], ["name", "admin"]]
+  [1m[35m (91.1ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for 127.0.0.1 at 2017-07-13 14:42:03 +0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HotelsController#top as HTML
+  Rendering hotels/top.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (29.9ms)
+  [1m[36mHotel Load (2.0ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."status" = ? ORDER BY "hotels"."rate" DESC LIMIT ?[0m  [["status", "approved"], ["LIMIT", 5]]
+  Rendered hotels/top.html.haml within layouts/application (96.1ms)
+Completed 200 OK in 8966ms (Views: 8873.2ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-07-13 14:42:20 +0300
+Processing by Admin::UsersController#index as HTML
+Redirected to http://localhost:3000/users/sign_in
+Filter chain halted as #<Proc:0x007f89dc080a80@/home/scootaloo/Hotelite_2_0/app/controllers/admin/application_controller.rb:9> rendered or redirected
+Completed 302 Found in 49ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-07-13 14:42:20 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (29.4ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (497.0ms)
+Completed 200 OK in 809ms (Views: 739.9ms | ActiveRecord: 9.3ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-07-13 14:42:41 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XGXTLvPF7BGxF6flueTT15JiszLaOL+inyf0Ir8AZVatCXL4QjBw/s5wTNwIhWU+LgWr79AWAMDnHevRf03sYQ==", "user"=>{"email"=>"admin@admin.admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Войти"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "admin@admin.admin"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.3ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-07-13 11:42:42.242801"], ["last_sign_in_at", "2017-07-13 11:42:42.242801"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2017-07-13 11:42:42.245554"], ["id", 1]]
+  [1m[35m (198.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 531ms (ActiveRecord: 203.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-13 14:42:43 +0300
+Processing by HotelsController#top as HTML
+  Rendering hotels/top.html.haml within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.haml (31.1ms)
+  [1m[36mHotel Load (1.2ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."status" = ? ORDER BY "hotels"."rate" DESC LIMIT ?[0m  [["status", "approved"], ["LIMIT", 5]]
+  Rendered hotels/top.html.haml within layouts/application (106.1ms)
+Completed 200 OK in 358ms (Views: 350.7ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-07-13 14:42:57 +0300
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/sign_in
+Filter chain halted as #<Proc:0x007f89dc080a80@/home/scootaloo/Hotelite_2_0/app/controllers/admin/application_controller.rb:9> rendered or redirected
+Completed 302 Found in 16ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-07-13 14:42:57 +0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 14ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-13 14:42:57 +0300
+Processing by HotelsController#top as HTML
+  Rendering hotels/top.html.haml within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.haml (18.7ms)
+  [1m[36mHotel Load (0.9ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."status" = ? ORDER BY "hotels"."rate" DESC LIMIT ?[0m  [["status", "approved"], ["LIMIT", 5]]
+  Rendered hotels/top.html.haml within layouts/application (32.8ms)
+Completed 200 OK in 324ms (Views: 315.1ms | ActiveRecord: 1.5ms)
+
+
+  [1m[36mUser Load (7.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.6ms)[0m  [1m[33mUPDATE "users" SET "id" = ?, "admin" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["id", 0], ["admin", "t"], ["updated_at", "2017-07-13 11:43:51.465616"], ["id", 1]]
+  [1m[35m (79.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/admin" for 127.0.0.1 at 2017-07-13 14:44:43 +0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/sign_in
+Filter chain halted as #<Proc:0x00000006f75480@/home/scootaloo/Hotelite_2_0/app/controllers/admin/application_controller.rb:9> rendered or redirected
+Completed 302 Found in 49ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-07-13 14:44:43 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (17.9ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (271.5ms)
+Completed 200 OK in 2215ms (Views: 2165.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-07-13 14:44:51 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cb245u+ihWFbGAFsVGTe3cmt6DZcJYfX0VJWUoaPE7L77Qj2KpPTlissFQ+d7UUQyfXxA3MUkU1ciX957rDS1Q==", "user"=>{"email"=>"admin@admin.admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Войти"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "admin@admin.admin"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (4.1ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-07-13 11:44:52.036839"], ["sign_in_count", 2], ["updated_at", "2017-07-13 11:44:52.044399"], ["id", 0]]
+  [1m[35m (57.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 428ms (ActiveRecord: 63.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-13 14:44:52 +0300
+Processing by HotelsController#top as HTML
+  Rendering hotels/top.html.haml within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered layouts/_header.html.haml (78.7ms)
+  [1m[36mHotel Load (1.5ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."status" = ? ORDER BY "hotels"."rate" DESC LIMIT ?[0m  [["status", "approved"], ["LIMIT", 5]]
+  Rendered hotels/top.html.haml within layouts/application (117.6ms)
+Completed 200 OK in 527ms (Views: 465.7ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-07-13 14:44:57 +0300
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (5.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering admin/application/index.html.erb within layouts/administrate/application
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_search.html.erb (4.9ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  [1m[36mHotel Load (0.9ms)[0m  [1m[34mSELECT "hotels".* FROM "hotels" WHERE "hotels"."user_id" = 0[0m
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/has_many/_index.html.erb (1.4ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/number/_index.html.erb (1.1ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (1.5ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.3ms)
+  Rendered admin/application/_collection.html.erb (176.5ms)
+  Rendered admin/application/index.html.erb within layouts/administrate/application (242.7ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_stylesheet.html.erb (143.6ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_icons.erb (0.9ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_navigation.html.erb (38.8ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_flashes.html.erb (1.5ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_javascript.html.erb (314.7ms)
+Completed 200 OK in 1200ms (Views: 889.6ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/admin/users/new" for 127.0.0.1 at 2017-07-13 14:45:03 +0300
+Processing by Admin::UsersController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering admin/application/new.html.erb within layouts/administrate/application
+  [1m[36mHotel Load (0.6ms)[0m  [1m[34mSELECT "hotels".* FROM "hotels"[0m
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/has_many/_form.html.erb (9.0ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_form.html.erb (9.2ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_form.html.erb (2.2ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_form.html.erb (5.0ms)
+  Rendered admin/application/_form.html.erb (73.4ms)
+  Rendered admin/application/new.html.erb within layouts/administrate/application (122.1ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_stylesheet.html.erb (42.8ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_icons.erb (1.9ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_navigation.html.erb (12.8ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_flashes.html.erb (3.0ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_javascript.html.erb (96.3ms)
+Completed 200 OK in 461ms (Views: 446.2ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/admin/users" for 127.0.0.1 at 2017-07-13 14:45:16 +0300
+Processing by Admin::UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TnlkmRbqTLPt9n1KrBQVKURYzGivR/3IfB43qC7O0OcQPU86/Xnn6c3ClmQozJPErMiDbdsTaZ51r+Ow1pBRQA==", "user"=>{"hotel_ids"=>[""], "name"=>"asd", "email"=>"a@a.a", "password"=>"[FILTERED]"}, "commit"=>"Создать User"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mHotel Load (0.6ms)[0m  [1m[34mSELECT "hotels".* FROM "hotels" WHERE 1=0[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "a@a.a"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  Rendering admin/application/new.html.erb within layouts/administrate/application
+  [1m[36mHotel Load (0.5ms)[0m  [1m[34mSELECT "hotels".* FROM "hotels"[0m
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/has_many/_form.html.erb (13.9ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_form.html.erb (6.3ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_form.html.erb (1.6ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_form.html.erb (1.2ms)
+  Rendered admin/application/_form.html.erb (41.3ms)
+  Rendered admin/application/new.html.erb within layouts/administrate/application (49.4ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_stylesheet.html.erb (35.3ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_icons.erb (11.5ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_navigation.html.erb (6.8ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_flashes.html.erb (1.2ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_javascript.html.erb (56.6ms)
+Completed 200 OK in 569ms (Views: 246.8ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/admin/users" for 127.0.0.1 at 2017-07-13 14:45:23 +0300
+Processing by Admin::UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"duCI4CEJwA5Ly7N95SjzXPCL/2/R5fnmFa8f/joI0VMopKNDypprVGv/WFNh8HWxGBuwaqWxbbAcHsvmwlZQ9A==", "user"=>{"hotel_ids"=>[""], "name"=>"asd", "email"=>"a@a.a", "password"=>"[FILTERED]"}, "commit"=>"Создать User"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mHotel Load (0.5ms)[0m  [1m[34mSELECT "hotels".* FROM "hotels" WHERE 1=0[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "a@a.a"], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?, ?)[0m  [["email", "a@a.a"], ["encrypted_password", "$2a$11$JhbEA7sQG/ldM2lrIk9NcufZdDeT3T.ppO9ZehFCKRT.0bUaaSuj6"], ["created_at", "2017-07-13 11:45:23.868220"], ["updated_at", "2017-07-13 11:45:23.868220"], ["name", "asd"]]
+  [1m[35m (96.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/admin/users/2
+Completed 302 Found in 340ms (ActiveRecord: 99.5ms)
+
+
+Started GET "/admin/users/2" for 127.0.0.1 at 2017-07-13 14:45:24 +0300
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering admin/application/show.html.erb within layouts/administrate/application
+  [1m[36mHotel Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "hotels" WHERE "hotels"."user_id" = ? LIMIT ? OFFSET ?[0m  [["user_id", 2], ["LIMIT", 1], ["OFFSET", 0]]
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/has_many/_show.html.erb (47.1ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/number/_show.html.erb (1.1ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_show.html.erb (1.2ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_show.html.erb (0.1ms)
+  Rendered admin/application/show.html.erb within layouts/administrate/application (83.8ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_stylesheet.html.erb (43.9ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_icons.erb (1.0ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_navigation.html.erb (7.6ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_flashes.html.erb (1.4ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_javascript.html.erb (83.1ms)
+Completed 200 OK in 397ms (Views: 376.5ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2017-07-13 14:45:31 +0300
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering admin/application/index.html.erb within layouts/administrate/application
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_search.html.erb (16.3ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  [1m[36mHotel Load (4.6ms)[0m  [1m[34mSELECT "hotels".* FROM "hotels" WHERE "hotels"."user_id" IN (0, 2)[0m
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/has_many/_index.html.erb (1.6ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/number/_index.html.erb (2.3ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (1.1ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/has_many/_index.html.erb (0.4ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/number/_index.html.erb (0.2ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered admin/application/_collection.html.erb (87.5ms)
+  Rendered admin/application/index.html.erb within layouts/administrate/application (166.7ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_stylesheet.html.erb (23.6ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_icons.erb (0.9ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_navigation.html.erb (19.7ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_flashes.html.erb (3.6ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_javascript.html.erb (64.1ms)
+Completed 200 OK in 386ms (Views: 374.0ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-13 14:45:44 +0300
+Processing by HotelsController#top as HTML
+  Rendering hotels/top.html.haml within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered layouts/_header.html.haml (30.6ms)
+  [1m[36mHotel Load (1.2ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."status" = ? ORDER BY "hotels"."rate" DESC LIMIT ?[0m  [["status", "approved"], ["LIMIT", 5]]
+  Rendered hotels/top.html.haml within layouts/application (47.8ms)
+Completed 200 OK in 426ms (Views: 369.5ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2017-07-13 14:45:48 +0300
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 22ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-13 14:45:48 +0300
+Processing by HotelsController#top as HTML
+  Rendering hotels/top.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (30.4ms)
+  [1m[36mHotel Load (1.3ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."status" = ? ORDER BY "hotels"."rate" DESC LIMIT ?[0m  [["status", "approved"], ["LIMIT", 5]]
+  Rendered hotels/top.html.haml within layouts/application (52.3ms)
+Completed 200 OK in 369ms (Views: 358.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-07-13 14:45:50 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (29.0ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (122.8ms)
+Completed 200 OK in 601ms (Views: 588.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-07-13 14:45:59 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tPeKInmff7fGvfu3S3KXjOI595siDB8njQQwvhVekErwkvaT8mMnBCXxjcSB4tLUVNeJR8dSrjR6ErmsK51Ayw==", "user"=>{"email"=>"a@a.a", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Войти"}
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "a@a.a"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.4ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-07-13 11:46:00.215819"], ["last_sign_in_at", "2017-07-13 11:46:00.215819"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2017-07-13 11:46:00.218346"], ["id", 2]]
+  [1m[35m (56.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 379ms (ActiveRecord: 63.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-13 14:46:00 +0300
+Processing by HotelsController#top as HTML
+  Rendering hotels/top.html.haml within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_header.html.haml (30.6ms)
+  [1m[36mHotel Load (1.8ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."status" = ? ORDER BY "hotels"."rate" DESC LIMIT ?[0m  [["status", "approved"], ["LIMIT", 5]]
+  Rendered hotels/top.html.haml within layouts/application (50.0ms)
+Completed 200 OK in 462ms (Views: 449.2ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2017-07-13 14:46:16 +0300
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 67ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-13 14:46:17 +0300
+Processing by HotelsController#top as HTML
+  Rendering hotels/top.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (35.0ms)
+  [1m[36mHotel Load (1.3ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."status" = ? ORDER BY "hotels"."rate" DESC LIMIT ?[0m  [["status", "approved"], ["LIMIT", 5]]
+  Rendered hotels/top.html.haml within layouts/application (61.2ms)
+Completed 200 OK in 425ms (Views: 414.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-07-13 14:46:19 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (22.5ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (74.1ms)
+Completed 200 OK in 411ms (Views: 405.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-13 14:46:25 +0300
+Processing by HotelsController#top as HTML
+  Rendering hotels/top.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (19.2ms)
+  [1m[36mHotel Load (1.5ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."status" = ? ORDER BY "hotels"."rate" DESC LIMIT ?[0m  [["status", "approved"], ["LIMIT", 5]]
+  Rendered hotels/top.html.haml within layouts/application (47.6ms)
+Completed 200 OK in 359ms (Views: 348.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-07-13 14:46:28 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (29.9ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (75.1ms)
+Completed 200 OK in 431ms (Views: 427.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-07-13 14:46:31 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+LoAKgF6T8JUJm5SwqtEcJGoWRpG+FfswzqmmoZWAotrVYyrscmH05zesaZlmePuymDVOg8MYKrhxz35z46edw==", "user"=>{"email"=>"admin@admin.admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Войти"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "admin@admin.admin"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-07-13 11:46:32.144240"], ["last_sign_in_at", "2017-07-13 11:44:52.036839"], ["sign_in_count", 3], ["updated_at", "2017-07-13 11:46:32.148898"], ["id", 0]]
+  [1m[35m (96.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 382ms (ActiveRecord: 99.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-13 14:46:32 +0300
+Processing by HotelsController#top as HTML
+  Rendering hotels/top.html.haml within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered layouts/_header.html.haml (23.0ms)
+  [1m[36mHotel Load (1.0ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."status" = ? ORDER BY "hotels"."rate" DESC LIMIT ?[0m  [["status", "approved"], ["LIMIT", 5]]
+  Rendered hotels/top.html.haml within layouts/application (40.4ms)
+Completed 200 OK in 317ms (Views: 311.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-07-13 14:46:37 +0300
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering admin/application/index.html.erb within layouts/administrate/application
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_search.html.erb (6.1ms)
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  [1m[36mHotel Load (1.0ms)[0m  [1m[34mSELECT "hotels".* FROM "hotels" WHERE "hotels"."user_id" IN (0, 2)[0m
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/has_many/_index.html.erb (3.9ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/number/_index.html.erb (4.9ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (1.4ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/has_many/_index.html.erb (0.5ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/number/_index.html.erb (0.2ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered admin/application/_collection.html.erb (117.5ms)
+  Rendered admin/application/index.html.erb within layouts/administrate/application (167.8ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_stylesheet.html.erb (39.7ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_icons.erb (1.0ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_navigation.html.erb (16.3ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_flashes.html.erb (1.9ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_javascript.html.erb (83.7ms)
+Completed 200 OK in 440ms (Views: 389.8ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/admin/users/2" for 127.0.0.1 at 2017-07-13 14:46:41 +0300
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering admin/application/show.html.erb within layouts/administrate/application
+  [1m[36mHotel Exists (3.4ms)[0m  [1m[34mSELECT  1 AS one FROM "hotels" WHERE "hotels"."user_id" = ? LIMIT ? OFFSET ?[0m  [["user_id", 2], ["LIMIT", 1], ["OFFSET", 0]]
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/has_many/_show.html.erb (23.5ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/number/_show.html.erb (2.3ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_show.html.erb (1.8ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_show.html.erb (0.2ms)
+  Rendered admin/application/show.html.erb within layouts/administrate/application (84.0ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_stylesheet.html.erb (37.4ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_icons.erb (1.6ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_navigation.html.erb (12.4ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_flashes.html.erb (2.3ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_javascript.html.erb (87.7ms)
+Completed 200 OK in 360ms (Views: 332.3ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/admin/users/2/edit" for 127.0.0.1 at 2017-07-13 14:46:47 +0300
+Processing by Admin::UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering admin/application/edit.html.erb within layouts/administrate/application
+  [1m[36mHotel Load (0.8ms)[0m  [1m[34mSELECT "hotels".* FROM "hotels"[0m
+  [1m[36mHotel Load (1.3ms)[0m  [1m[34mSELECT "hotels".* FROM "hotels" WHERE "hotels"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/has_many/_form.html.erb (43.5ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_form.html.erb (4.3ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_form.html.erb (1.8ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_form.html.erb (3.4ms)
+  Rendered admin/application/_form.html.erb (86.2ms)
+  Rendered admin/application/edit.html.erb within layouts/administrate/application (113.9ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_stylesheet.html.erb (37.7ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_icons.erb (1.4ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_navigation.html.erb (11.3ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_flashes.html.erb (2.2ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_javascript.html.erb (101.0ms)
+Completed 200 OK in 501ms (Views: 459.9ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/admin/users/0/edit" for 127.0.0.1 at 2017-07-13 14:46:54 +0300
+Processing by Admin::UsersController#edit as HTML
+  Parameters: {"id"=>"0"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering admin/application/edit.html.erb within layouts/administrate/application
+  [1m[36mHotel Load (2.8ms)[0m  [1m[34mSELECT "hotels".* FROM "hotels"[0m
+  [1m[36mHotel Load (0.3ms)[0m  [1m[34mSELECT "hotels".* FROM "hotels" WHERE "hotels"."user_id" = ?[0m  [["user_id", 0]]
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/has_many/_form.html.erb (21.3ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_form.html.erb (2.4ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_form.html.erb (1.1ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_form.html.erb (1.8ms)
+  Rendered admin/application/_form.html.erb (57.4ms)
+  Rendered admin/application/edit.html.erb within layouts/administrate/application (79.6ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_stylesheet.html.erb (35.0ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_icons.erb (1.8ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_navigation.html.erb (7.0ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_flashes.html.erb (1.4ms)
+  Rendered vendor/bundle/ruby/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_javascript.html.erb (88.5ms)
+Completed 200 OK in 305ms (Views: 279.8ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-13 14:47:10 +0300
+Processing by HotelsController#top as HTML
+  Rendering hotels/top.html.haml within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered layouts/_header.html.haml (38.5ms)
+  [1m[36mHotel Load (0.9ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."status" = ? ORDER BY "hotels"."rate" DESC LIMIT ?[0m  [["status", "approved"], ["LIMIT", 5]]
+  Rendered hotels/top.html.haml within layouts/application (64.4ms)
+Completed 200 OK in 334ms (Views: 328.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2017-07-13 14:47:14 +0300
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 40ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-13 14:47:14 +0300
+Processing by HotelsController#top as HTML
+  Rendering hotels/top.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (29.6ms)
+  [1m[36mHotel Load (1.8ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."status" = ? ORDER BY "hotels"."rate" DESC LIMIT ?[0m  [["status", "approved"], ["LIMIT", 5]]
+  Rendered hotels/top.html.haml within layouts/application (48.9ms)
+Completed 200 OK in 350ms (Views: 335.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-07-13 14:47:16 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (32.3ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (107.1ms)
+Completed 200 OK in 512ms (Views: 493.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-07-13 14:47:25 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DsTALOgvJLuNtRcrjJ5a6KmDaqH28GsksYMkA4yZESSpSsWJaYcSSaLlaPXa/OIDtOzmXVVtPJsWHPwwvuxVmA==", "user"=>{"email"=>"a@a.a", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Войти"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "a@a.a"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 271ms (ActiveRecord: 1.3ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DsTALOgvJLuNtRcrjJ5a6KmDaqH28GsksYMkA4yZESSpSsWJaYcSSaLlaPXa/OIDtOzmXVVtPJsWHPwwvuxVmA==", "user"=>{"email"=>"a@a.a", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Войти"}
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (16.0ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (62.2ms)
+Completed 200 OK in 627ms (Views: 385.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-07-13 14:47:57 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q2S8GprIl5s/z1FOOzpaf5iFxgASV+1gY62OKMrRsRNdFM/REXcWv0pGsQFE3pbtRLwSsXiXocxluWBUHAsgDQ==", "user"=>{"email"=>"a@a.a", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Войти"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "a@a.a"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 242ms (ActiveRecord: 0.6ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q2S8GprIl5s/z1FOOzpaf5iFxgASV+1gY62OKMrRsRNdFM/REXcWv0pGsQFE3pbtRLwSsXiXocxluWBUHAsgDQ==", "user"=>{"email"=>"a@a.a", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Войти"}
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (41.2ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (69.9ms)
+Completed 200 OK in 548ms (Views: 302.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-07-13 14:48:03 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"J+uqRFbBip7ne9BP267cVnRKLfqpfctoWoVlQjZPQETRm9mP3X4LupLyMACkShDEqHP5S8O9h8RckYs+4JXRWg==", "user"=>{"email"=>"a@a.a", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Войти"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "a@a.a"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-07-13 11:48:03.363259"], ["sign_in_count", 2], ["updated_at", "2017-07-13 11:48:03.373680"], ["id", 2]]
+  [1m[35m (143.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 496ms (ActiveRecord: 145.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-13 14:48:03 +0300
+Processing by HotelsController#top as HTML
+  Rendering hotels/top.html.haml within layouts/application
+  [1m[36mUser Load (9.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_header.html.haml (47.9ms)
+  [1m[36mHotel Load (3.1ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."status" = ? ORDER BY "hotels"."rate" DESC LIMIT ?[0m  [["status", "approved"], ["LIMIT", 5]]
+  Rendered hotels/top.html.haml within layouts/application (79.5ms)
+Completed 200 OK in 388ms (Views: 358.6ms | ActiveRecord: 12.4ms)
+
+
