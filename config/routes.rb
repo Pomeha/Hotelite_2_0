@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   #devise_for :users
   resources :hotels do
     resources :reviews
+    put :approve
+    put :reject
     collection do
       get :top
     end

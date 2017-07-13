@@ -22,7 +22,7 @@ gem 'has_scope'
 gem 'russian', '~> 0.6.0'
 gem 'jquery-rails'
 gem 'administrate', :github => 'thoughtbot/administrate', :branch => 'master'
-
+gem 'aasm'
 group :development do
   gem "erb2haml"
   gem 'sqlite3'

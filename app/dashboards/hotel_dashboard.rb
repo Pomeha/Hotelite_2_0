@@ -22,7 +22,7 @@ class HotelDashboard < Administrate::BaseDashboard
     room: Field::Text,
     price: Field::Number,
     rate: Field::Number,
-    status: Field::String,
+    aasm_state: Field::String,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -35,6 +35,7 @@ class HotelDashboard < Administrate::BaseDashboard
     :reviews,
     :id,
     :name,
+    :aasm_state
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -54,7 +55,7 @@ class HotelDashboard < Administrate::BaseDashboard
     :room,
     :price,
     :rate,
-    :status,
+    :aasm_state,
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -72,7 +73,7 @@ class HotelDashboard < Administrate::BaseDashboard
     :room,
     :price,
     :rate,
-    :status,
+    :aasm_state,
   ].freeze
 
   # Overwrite this method to customize how hotels are displayed
