@@ -40,11 +40,11 @@ class UserDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :hotels,
     :name,
     :email,
     :password
   ].freeze
+
 
   # Overwrite this method to customize how users are displayed
   # across all pages of the admin dashboard.
