@@ -41,7 +41,7 @@ class HotelsController < ApplicationController
     @hotel.user_id = current_user.id
     respond_to do |format|
       if @hotel.save
-        format.html { redirect_to hotels_path, notice: 'Hotel was successfully created.' }
+        format.html { redirect_to hotels_path, notice: 'Hotel was successfully created. It will appear in the list after moderator approval'}
       else
         format.html { render :new }
       end
@@ -53,7 +53,7 @@ class HotelsController < ApplicationController
   def update
     respond_to do |format|
       if @hotel.update(hotel_params)
-        format.html { redirect_to @hotel, notice: 'Hotel was successfully updated.' }
+        format.html { redirect_to @hotel, notice: 'Hotel was successfully updated.'  }
       else
         format.html { render :edit }
       end
@@ -65,7 +65,7 @@ class HotelsController < ApplicationController
   def destroy
     @hotel.destroy
     respond_to do |format|
-      format.html { redirect_to hotels_path, notice: 'Hotel was successfully destroyed.' }
+      format.html { redirect_to hotels_path, notice: 'Hotel was successfully destroyed.'  }
     end
   end
 
@@ -73,8 +73,9 @@ class HotelsController < ApplicationController
     @hotel = Hotel.find(params[:hotel_id])
     @hotel.approve
     @hotel.save
+    HotelMailer.hotel_email(@hotel).deliver
     respond_to do |format|
-      format.html { redirect_to admin_hotels_path, notice: 'Hotel was successfully approved.' }
+      format.html { redirect_to admin_hotels_path, notice: 'Hotel was successfully approved.'  }
     end
   end
 
@@ -82,6 +83,7 @@ class HotelsController < ApplicationController
     @hotel = Hotel.find(params[:hotel_id])
     @hotel.reject
     @hotel.save
+    HotelMailer.hotel_email(@hotel).deliver
     respond_to do |format|
       format.html { redirect_to admin_hotels_path, notice: 'Hotel was successfully rejected.' }
     end
