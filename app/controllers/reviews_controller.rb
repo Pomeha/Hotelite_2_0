@@ -26,12 +26,14 @@ class ReviewsController < ApplicationController
     @hotel = Hotel.find(params[:hotel_id])
     @review = @hotel.reviews.find(params[:id])
     @review.destroy
+    if @hotel.reviews.count>0
+      @hotel.rate=@hotel.reviews.sum{|review| review.rate}/@hotel.reviews.count
+    else
+      @hotel.rate=0;
+    end
+    @hotel.save
     respond_to do |format|
-      if current_user.admin == true
-        format.html { redirect_to @hotel, notice: 'Review was successfully destroyed.' }
-      else
-        format.html { redirect_to @hotel, notice: "You don't have permissions for do this (What is done on the Internet remains on the Internet.)" }
-      end
+      format.html { redirect_to @hotel, notice: 'Review was successfully destroyed.' }
     end
   end
 
