@@ -11667,3 +11667,1281 @@ Processing by Admin::HotelsController#index as HTML
 Completed 200 OK in 584ms (Views: 550.1ms | ActiveRecord: 3.6ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-07-13 19:01:28 +0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HotelsController#top as HTML
+  Rendering hotels/top.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (32.9ms)
+  [1m[36mHotel Load (1.0ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."aasm_state" = ? ORDER BY "hotels"."rate" DESC LIMIT ?[0m  [["aasm_state", "approved"], ["LIMIT", 5]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (1361.7ms)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (12.8ms)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (23.1ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (17.0ms)
+  Rendered hotels/top.html.haml within layouts/application (1565.8ms)
+Completed 200 OK in 2186ms (Views: 2047.5ms | ActiveRecord: 12.4ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-07-13 19:01:35 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (23.0ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (590.4ms)
+Completed 200 OK in 1246ms (Views: 1226.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-07-13 19:01:45 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TOBblZmw+QZh/Ye+8zh+o/cfSbpj4itucOe0R0LqrUy3K9MRxsNmaASBwFn1NpdcuKrZa7QCkBlGJtz0vOR1bQ==", "user"=>{"email"=>"admin@admin.admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Войти"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "admin@admin.admin"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.8ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-07-13 16:01:46.522289"], ["last_sign_in_at", "2017-07-13 15:38:28.040438"], ["sign_in_count", 5], ["updated_at", "2017-07-13 16:01:46.528063"], ["id", 0]]
+  [1m[35m (75.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 685ms (ActiveRecord: 80.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-13 19:01:46 +0300
+Processing by HotelsController#top as HTML
+  Rendering hotels/top.html.haml within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered layouts/_header.html.haml (50.0ms)
+  [1m[36mHotel Load (5.2ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."aasm_state" = ? ORDER BY "hotels"."rate" DESC LIMIT ?[0m  [["aasm_state", "approved"], ["LIMIT", 5]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (61.2ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (6.0ms)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (6.9ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (8.7ms)
+  Rendered hotels/top.html.haml within layouts/application (194.2ms)
+Completed 200 OK in 423ms (Views: 409.8ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-07-13 19:01:54 +0300
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering admin/application/index.html.erb within layouts/administrate/application
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_search.html.erb (6.1ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  [1m[36mHotel Load (0.9ms)[0m  [1m[34mSELECT "hotels".* FROM "hotels" WHERE "hotels"."user_id" IN (0, 2, 3)[0m
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/has_many/_index.html.erb (2.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/number/_index.html.erb (2.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/has_many/_index.html.erb (0.7ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/number/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/has_many/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/number/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered admin/application/_collection.html.erb (221.7ms)
+  Rendered admin/application/index.html.erb within layouts/administrate/application (277.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_stylesheet.html.erb (51.0ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_icons.erb (1.6ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_navigation.html.erb (36.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_flashes.html.erb (2.7ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_javascript.html.erb (90.9ms)
+Completed 200 OK in 694ms (Views: 615.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/admin/hotels" for 127.0.0.1 at 2017-07-13 19:02:00 +0300
+Processing by Admin::HotelsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering admin/application/index.html.erb within layouts/administrate/application
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_search.html.erb (6.6ms)
+  [1m[36mHotel Load (0.7ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (0, 3)[0m
+  [1m[36mReview Load (0.9ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."hotel_id" IN (1, 2, 4, 5, 6)[0m
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/belongs_to/_index.html.erb (4.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/has_many/_index.html.erb (2.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/number/_index.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/belongs_to/_index.html.erb (1.9ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/has_many/_index.html.erb (0.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/number/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/belongs_to/_index.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/has_many/_index.html.erb (0.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/number/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/belongs_to/_index.html.erb (2.8ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/has_many/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/number/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/belongs_to/_index.html.erb (1.6ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/has_many/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/number/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered admin/application/_collection.html.erb (292.2ms)
+  Rendered admin/application/index.html.erb within layouts/administrate/application (352.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_stylesheet.html.erb (35.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_icons.erb (1.0ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_navigation.html.erb (7.0ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_flashes.html.erb (1.4ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_javascript.html.erb (49.9ms)
+Completed 200 OK in 528ms (Views: 506.7ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/admin/hotels/6/edit" for 127.0.0.1 at 2017-07-13 19:02:04 +0300
+Processing by Admin::HotelsController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mHotel Load (0.8ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering admin/application/edit.html.erb within layouts/administrate/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/belongs_to/_form.html.erb (31.3ms)
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  [1m[36mReview Load (0.6ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."hotel_id" = ?[0m  [["hotel_id", 6]]
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/has_many/_form.html.erb (18.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_form.html.erb (2.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/number/_form.html.erb (3.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/boolean/_form.html.erb (2.8ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_form.html.erb (2.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_form.html.erb (1.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_form.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/text/_form.html.erb (3.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/number/_form.html.erb (1.4ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/number/_form.html.erb (1.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_form.html.erb (1.4ms)
+  Rendered admin/application/_form.html.erb (154.7ms)
+  Rendered admin/application/edit.html.erb within layouts/administrate/application (170.0ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_stylesheet.html.erb (27.4ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_icons.erb (1.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_navigation.html.erb (8.4ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_flashes.html.erb (1.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_javascript.html.erb (87.1ms)
+Completed 200 OK in 382ms (Views: 362.8ms | ActiveRecord: 5.0ms)
+
+
+Started PATCH "/admin/hotels/6" for 127.0.0.1 at 2017-07-13 19:02:14 +0300
+Processing by Admin::HotelsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"seQtwullNln+9lTg68nnZwZ8iYT+6tN310HgYB3PfCELaL6Cj/AKjPWBqmsIVpS0JCjdnOFSCDlg4N3TLMX9Nw==", "hotel"=>{"user_id"=>"3", "review_ids"=>[""], "name"=>"p", "star"=>"2", "breakfest"=>"0", "address"=>"p", "description"=>"p", "image"=>"", "room"=>"", "price"=>"1", "rate"=>"0", "aasm_state"=>"pending"}, "commit"=>"Сохранить Hotel", "id"=>"6"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mHotel Load (2.5ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mReview Load (3.7ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE 1=0[0m
+  [1m[36mReview Load (0.7ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."hotel_id" = ?[0m  [["hotel_id", 6]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (14.1ms)[0m  [1m[33mUPDATE "hotels" SET "updated_at" = ?, "aasm_state" = ? WHERE "hotels"."id" = ?[0m  [["updated_at", "2017-07-13 16:02:14.343010"], ["aasm_state", "pending"], ["id", 6]]
+  [1m[35m (59.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/admin/hotels/6
+Completed 302 Found in 314ms (ActiveRecord: 83.1ms)
+
+
+Started GET "/admin/hotels/6" for 127.0.0.1 at 2017-07-13 19:02:14 +0300
+Processing by Admin::HotelsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mHotel Load (0.6ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering admin/application/show.html.erb within layouts/administrate/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/belongs_to/_show.html.erb (2.6ms)
+  [1m[36mReview Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "reviews" WHERE "reviews"."hotel_id" = ? LIMIT ? OFFSET ?[0m  [["hotel_id", 6], ["LIMIT", 1], ["OFFSET", 0]]
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/has_many/_show.html.erb (43.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/number/_show.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_show.html.erb (1.6ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/number/_show.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/boolean/_show.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_show.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/date_time/_show.html.erb (2.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/date_time/_show.html.erb (0.7ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_show.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_show.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/text/_show.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/number/_show.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/number/_show.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_show.html.erb (0.1ms)
+  Rendered admin/application/show.html.erb within layouts/administrate/application (204.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_stylesheet.html.erb (25.9ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_icons.erb (0.9ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_navigation.html.erb (7.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_flashes.html.erb (1.7ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_javascript.html.erb (57.3ms)
+Completed 200 OK in 375ms (Views: 361.0ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/admin/hotels" for 127.0.0.1 at 2017-07-13 19:02:18 +0300
+Processing by Admin::HotelsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering admin/application/index.html.erb within layouts/administrate/application
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_search.html.erb (4.2ms)
+  [1m[36mHotel Load (0.6ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (0, 3)[0m
+  [1m[36mReview Load (0.6ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."hotel_id" IN (1, 2, 4, 5, 6)[0m
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/belongs_to/_index.html.erb (2.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/has_many/_index.html.erb (3.9ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/number/_index.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (1.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/belongs_to/_index.html.erb (4.4ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/has_many/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/number/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/belongs_to/_index.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/has_many/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/number/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/belongs_to/_index.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/has_many/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/number/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/belongs_to/_index.html.erb (2.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/has_many/_index.html.erb (1.7ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/number/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered admin/application/_collection.html.erb (294.3ms)
+  Rendered admin/application/index.html.erb within layouts/administrate/application (387.0ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_stylesheet.html.erb (54.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_icons.erb (3.9ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_navigation.html.erb (9.4ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_flashes.html.erb (1.4ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_javascript.html.erb (62.0ms)
+Completed 200 OK in 670ms (Views: 653.9ms | ActiveRecord: 2.9ms)
+
+
+Started PUT "/hotels/6/reject" for 127.0.0.1 at 2017-07-13 19:02:25 +0300
+Processing by HotelsController#reject as HTML
+  Parameters: {"authenticity_token"=>"10/2fT00Wkcy5SU3SN+IyULSgMRyN3cRqEL3QktZHu1tw2U9W6FmkjmS27yrQPsaYIbU3G2PrF8f48rxelOf+w==", "hotel_id"=>"6"}
+  [1m[36mHotel Load (0.6ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (3.6ms)[0m  [1m[33mUPDATE "hotels" SET "updated_at" = ?, "aasm_state" = ? WHERE "hotels"."id" = ?[0m  [["updated_at", "2017-07-13 16:02:25.361713"], ["aasm_state", "rejected"], ["id", 6]]
+  [1m[35m (79.3ms)[0m  [1m[36mcommit transaction[0m
+  Rendering hotel_mailer/hotel_email.html.erb within layouts/mailer
+  Rendered hotel_mailer/hotel_email.html.erb within layouts/mailer (2.0ms)
+  Rendering hotel_mailer/hotel_email.text.erb within layouts/mailer
+  Rendered hotel_mailer/hotel_email.text.erb within layouts/mailer (1.9ms)
+HotelMailer#hotel_email: processed outbound mail in 617.0ms
+Sent mail to lp_vetal@mail.ru (42.9ms)
+Date: Thu, 13 Jul 2017 19:02:27 +0300
+From: from@example.com
+To: lp_vetal@mail.ru
+Message-ID: <5967999320884_6a5f2ce5c142655a@HAL-9000.mail>
+Subject: Your hotel
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_596799931936f_6a5f2ce5c14264b6";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_596799931936f_6a5f2ce5c14264b6
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi 
+Your hotel
+
+----==_mimepart_596799931936f_6a5f2ce5c14264b6
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi </h1>
+    <p>
+      Your hotel
+    </p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+----==_mimepart_596799931936f_6a5f2ce5c14264b6--
+
+Redirected to http://localhost:3000/admin/hotels
+Completed 302 Found in 1846ms (ActiveRecord: 84.1ms)
+
+
+Started GET "/admin/hotels" for 127.0.0.1 at 2017-07-13 19:02:27 +0300
+Processing by Admin::HotelsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering admin/application/index.html.erb within layouts/administrate/application
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_search.html.erb (3.7ms)
+  [1m[36mHotel Load (1.2ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (0, 3)[0m
+  [1m[36mReview Load (0.6ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."hotel_id" IN (1, 2, 4, 5, 6)[0m
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/belongs_to/_index.html.erb (2.7ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/has_many/_index.html.erb (1.4ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/number/_index.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/belongs_to/_index.html.erb (2.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/has_many/_index.html.erb (0.6ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/number/_index.html.erb (0.4ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/belongs_to/_index.html.erb (3.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/has_many/_index.html.erb (0.6ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/number/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/belongs_to/_index.html.erb (2.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/has_many/_index.html.erb (0.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/number/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (1.4ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/belongs_to/_index.html.erb (2.0ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/has_many/_index.html.erb (0.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/number/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered admin/application/_collection.html.erb (240.0ms)
+  Rendered admin/application/index.html.erb within layouts/administrate/application (281.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_stylesheet.html.erb (37.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_icons.erb (1.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_navigation.html.erb (13.0ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_flashes.html.erb (2.4ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-0ce7c5e87fe0/app/views/administrate/application/_javascript.html.erb (58.4ms)
+Completed 200 OK in 507ms (Views: 494.3ms | ActiveRecord: 3.3ms)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_hotels_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_hotels_on_user_id' AND type='index'
+[0m
+  [1m[35m (1.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reviews_on_hotel_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reviews_on_hotel_id' AND type='index'
+[0m
+  [1m[35m (0.5ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reviews_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reviews_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.5ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (1.5ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2017-07-14 14:55:50 +0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HotelsController#top as HTML
+  Rendering hotels/top.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (34.8ms)
+  [1m[36mHotel Load (1.7ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."aasm_state" = ? ORDER BY "hotels"."rate" DESC LIMIT ?[0m  [["aasm_state", "approved"], ["LIMIT", 5]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (8583.7ms)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (7.1ms)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (4.9ms)
+  Rendered hotels/top.html.haml within layouts/application (8828.2ms)
+Completed 200 OK in 9688ms (Views: 9496.0ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-07-14 14:56:09 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (52.3ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (633.2ms)
+Completed 200 OK in 1148ms (Views: 1118.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-07-14 14:56:35 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VXoKq9mICykPIEeXTNcSmtIeBO1XEbMrNU7Q6a+w9R0SrHagTR3EbfrMqRjCEcmpQ/873zxiIATtpFp3nV/RXA==", "user"=>{"email"=>"lp_vetal@mail.ru", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Войти"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "lp_vetal@mail.ru"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (6.5ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-07-14 11:56:36.202000"], ["sign_in_count", 2], ["updated_at", "2017-07-14 11:56:36.208132"], ["id", 3]]
+  [1m[35m (474.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 965ms (ActiveRecord: 482.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-14 14:56:37 +0300
+Processing by HotelsController#top as HTML
+  Rendering hotels/top.html.haml within layouts/application
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered layouts/_header.html.haml (66.3ms)
+  [1m[36mHotel Load (4.3ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."aasm_state" = ? ORDER BY "hotels"."rate" DESC LIMIT ?[0m  [["aasm_state", "approved"], ["LIMIT", 5]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (88.7ms)
+  [1m[36mCACHE User Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (20.6ms)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (38.3ms)
+  Rendered hotels/top.html.haml within layouts/application (336.7ms)
+Completed 200 OK in 973ms (Views: 960.2ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/hotels/new" for 127.0.0.1 at 2017-07-14 14:56:42 +0300
+Processing by HotelsController#new as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering hotels/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (18.5ms)
+DEPRECATION WARNING: input method now accepts a `wrapper_options` argument. The method definition without the argument is deprecated and will be removed in the next Simple Form version. Change your code from:
+
+    def input
+
+to
+
+    def input(wrapper_options)
+
+See https://github.com/plataformatec/simple_form/pull/997 for more information.
+ (called from block in _app_views_hotels__form_html_haml___100020912810098852_45750860 at /home/scootaloo/Hotelite_2_0/app/views/hotels/_form.html.haml:44)
+  Rendered hotels/_form.html.haml (111.5ms)
+  Rendered hotels/new.html.haml within layouts/application (167.7ms)
+Completed 200 OK in 674ms (Views: 616.8ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/hotels" for 127.0.0.1 at 2017-07-14 14:56:59 +0300
+Processing by HotelsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ry6LZptYW0DrKouoeUa8z144Kn4zRBSm5NVgWGGc+MXlPLUhxSpeA+F3KJRr+M5xz/6ltMKhb5udpD6goBGHoQ==", "hotel"=>{"name"=>"qwerty", "star"=>"3", "breakfest"=>"0", "address"=>"a", "description"=>"a", "room"=>"a", "price"=>"1", "image_cache"=>""}, "commit"=>"Создать запись"}
+  [1m[36mUser Load (5.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Unpermitted parameter: :image_cache
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (11.2ms)[0m  [1m[32mINSERT INTO "hotels" ("name", "star", "breakfest", "address", "created_at", "updated_at", "description", "user_id", "room", "price", "rate", "aasm_state") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "qwerty"], ["star", 3], ["breakfest", "f"], ["address", "a"], ["created_at", "2017-07-14 11:56:59.225110"], ["updated_at", "2017-07-14 11:56:59.225110"], ["description", "a"], ["user_id", 3], ["room", "a"], ["price", 1], ["rate", 0], ["aasm_state", "pending"]]
+  [1m[35m (173.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/hotels
+Completed 302 Found in 253ms (ActiveRecord: 190.7ms)
+
+
+Started GET "/hotels" for 127.0.0.1 at 2017-07-14 14:56:59 +0300
+Processing by HotelsController#index as HTML
+  Rendering hotels/index.html.haml within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered layouts/_header.html.haml (35.8ms)
+  [1m[36mHotel Load (0.9ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."aasm_state" = ? ORDER BY "hotels"."created_at" DESC LIMIT ? OFFSET ?[0m  [["aasm_state", "approved"], ["LIMIT", 5], ["OFFSET", 0]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (40.7ms)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (11.7ms)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (15.6ms)
+  Rendered hotels/index.html.haml within layouts/application (183.6ms)
+Completed 200 OK in 588ms (Views: 546.7ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2017-07-14 14:57:06 +0300
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 107ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-14 14:57:06 +0300
+Processing by HotelsController#top as HTML
+  Rendering hotels/top.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (22.5ms)
+  [1m[36mHotel Load (1.0ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."aasm_state" = ? ORDER BY "hotels"."rate" DESC LIMIT ?[0m  [["aasm_state", "approved"], ["LIMIT", 5]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (60.5ms)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (16.3ms)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (9.5ms)
+  Rendered hotels/top.html.haml within layouts/application (150.1ms)
+Completed 200 OK in 533ms (Views: 511.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-07-14 14:57:09 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (40.4ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (89.4ms)
+Completed 200 OK in 448ms (Views: 430.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-07-14 14:57:14 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"byRc0QcWlhw0Oxm62b3wKVlOSsuJ2dDuc8fAB03wSmSZjgmwgdtWyHjNiMpB7ZE1xIFfIK6BgZnr+LshAx40sA==", "user"=>{"email"=>"admin@admin.admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Войти"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "admin@admin.admin"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-07-14 11:57:14.399814"], ["last_sign_in_at", "2017-07-13 16:01:46.522289"], ["sign_in_count", 6], ["updated_at", "2017-07-14 11:57:14.402115"], ["id", 0]]
+  [1m[35m (101.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 430ms (ActiveRecord: 104.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-14 14:57:14 +0300
+Processing by HotelsController#top as HTML
+  Rendering hotels/top.html.haml within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered layouts/_header.html.haml (64.9ms)
+  [1m[36mHotel Load (2.1ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."aasm_state" = ? ORDER BY "hotels"."rate" DESC LIMIT ?[0m  [["aasm_state", "approved"], ["LIMIT", 5]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (52.4ms)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (34.2ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (20.8ms)
+  Rendered hotels/top.html.haml within layouts/application (239.4ms)
+Completed 200 OK in 767ms (Views: 759.9ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-07-14 14:57:30 +0300
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering admin/application/index.html.erb within layouts/administrate/application
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_search.html.erb (4.1ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  [1m[36mHotel Load (1.9ms)[0m  [1m[34mSELECT "hotels".* FROM "hotels" WHERE "hotels"."user_id" IN (0, 2, 3)[0m
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (3.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (6.6ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (1.7ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (0.4ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (0.8ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered admin/application/_collection.html.erb (328.9ms)
+  Rendered admin/application/index.html.erb within layouts/administrate/application (401.9ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_stylesheet.html.erb (93.4ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_icons.erb (0.9ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_navigation.html.erb (31.7ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_flashes.html.erb (3.6ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_javascript.html.erb (437.2ms)
+Completed 200 OK in 1214ms (Views: 1145.8ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/admin/hotels" for 127.0.0.1 at 2017-07-14 14:57:34 +0300
+Processing by Admin::HotelsController#index as HTML
+  [1m[36mUser Load (16.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering admin/application/index.html.erb within layouts/administrate/application
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_search.html.erb (10.1ms)
+  [1m[36mHotel Load (0.8ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (0, 3)[0m
+  [1m[36mReview Load (1.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."hotel_id" IN (1, 2, 4, 5, 6, 7)[0m
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (4.7ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (14.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (1.8ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (1.8ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (2.8ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (0.7ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (0.7ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (2.0ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (0.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (2.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (0.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (1.9ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (0.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (2.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (0.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.4ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered admin/application/_collection.html.erb (415.3ms)
+  Rendered admin/application/index.html.erb within layouts/administrate/application (501.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_stylesheet.html.erb (31.8ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_icons.erb (1.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_navigation.html.erb (13.0ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_flashes.html.erb (10.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_javascript.html.erb (78.7ms)
+Completed 200 OK in 810ms (Views: 744.7ms | ActiveRecord: 28.5ms)
+
+
+Started PUT "/hotels/7/approve" for 127.0.0.1 at 2017-07-14 14:57:38 +0300
+Processing by HotelsController#approve as HTML
+  Parameters: {"authenticity_token"=>"EpEPNVvZdVOTX4GKXkuAhdl6KvAXVzftzS7lBJ0dO3yFCCbifZSoqJiU55Qd2u7ME8jNTkGpK2do5FYzNNETPg==", "hotel_id"=>"7"}
+  [1m[36mHotel Load (1.2ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (2.8ms)[0m  [1m[33mUPDATE "hotels" SET "updated_at" = ?, "aasm_state" = ? WHERE "hotels"."id" = ?[0m  [["updated_at", "2017-07-14 11:57:38.224945"], ["aasm_state", "approved"], ["id", 7]]
+  [1m[35m (189.0ms)[0m  [1m[36mcommit transaction[0m
+  Rendering hotel_mailer/hotel_email.html.erb within layouts/mailer
+  Rendered hotel_mailer/hotel_email.html.erb within layouts/mailer (4.1ms)
+  Rendering hotel_mailer/hotel_email.text.erb within layouts/mailer
+  Rendered hotel_mailer/hotel_email.text.erb within layouts/mailer (2.8ms)
+HotelMailer#hotel_email: processed outbound mail in 763.7ms
+Sent mail to lp_vetal@mail.ru (1912.2ms)
+Date: Fri, 14 Jul 2017 14:57:40 +0300
+From: from@example.com
+To: lp_vetal@mail.ru
+Message-ID: <5968b1b45b480_13a82e82018334b5@HAL-9000.mail>
+Subject: Your hotel
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5968b1b446d14_13a82e82018333a0";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5968b1b446d14_13a82e82018333a0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi 
+Your hotel
+
+----==_mimepart_5968b1b446d14_13a82e82018333a0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi </h1>
+    <p>
+      Your hotel
+    </p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+----==_mimepart_5968b1b446d14_13a82e82018333a0--
+
+Redirected to http://localhost:3000/admin/hotels
+Completed 302 Found in 4033ms (ActiveRecord: 194.1ms)
+
+
+Started GET "/admin/hotels" for 127.0.0.1 at 2017-07-14 14:57:42 +0300
+Processing by Admin::HotelsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering admin/application/index.html.erb within layouts/administrate/application
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_search.html.erb (8.2ms)
+  [1m[36mHotel Load (0.9ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (0, 3)[0m
+  [1m[36mReview Load (1.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."hotel_id" IN (1, 2, 4, 5, 6, 7)[0m
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (2.6ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (1.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (1.8ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (4.0ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (2.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.7ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.6ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (1.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (1.4ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered admin/application/_collection.html.erb (297.8ms)
+  Rendered admin/application/index.html.erb within layouts/administrate/application (357.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_stylesheet.html.erb (33.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_icons.erb (1.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_navigation.html.erb (8.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_flashes.html.erb (2.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_javascript.html.erb (83.6ms)
+Completed 200 OK in 601ms (Views: 588.3ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/hotels" for 127.0.0.1 at 2017-07-14 15:14:07 +0300
+Processing by HotelsController#index as HTML
+  Rendering hotels/index.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (85.2ms)
+  [1m[36mHotel Load (0.8ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."aasm_state" = ? ORDER BY "hotels"."created_at" DESC LIMIT ? OFFSET ?[0m  [["aasm_state", "approved"], ["LIMIT", 5], ["OFFSET", 0]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (217.9ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (28.3ms)
+  [1m[36mCACHE User Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (36.1ms)
+  [1m[36mCACHE User Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (34.7ms)
+  Rendered hotels/index.html.haml within layouts/application (746.9ms)
+Completed 200 OK in 2073ms (Views: 1812.5ms | ActiveRecord: 33.6ms)
+
+
+Started GET "/admin/hotels/7/edit" for 127.0.0.1 at 2017-07-14 15:21:50 +0300
+Processing by Admin::HotelsController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mHotel Load (14.7ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering admin/application/edit.html.erb within layouts/administrate/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_form.html.erb (58.3ms)
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  [1m[36mReview Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "reviews" WHERE "reviews"."hotel_id" = ? LIMIT ?[0m  [["hotel_id", 7], ["LIMIT", 1]]
+  [1m[35m (9.2ms)[0m  [1m[34mSELECT "reviews".id FROM "reviews" WHERE "reviews"."hotel_id" = ?[0m  [["hotel_id", 7]]
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_form.html.erb (50.7ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_form.html.erb (2.7ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_form.html.erb (3.8ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/boolean/_form.html.erb (6.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_form.html.erb (3.9ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_form.html.erb (2.6ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_form.html.erb (4.4ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/text/_form.html.erb (3.8ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_form.html.erb (2.8ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_form.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_form.html.erb (1.5ms)
+  Rendered admin/application/_form.html.erb (298.2ms)
+  Rendered admin/application/edit.html.erb within layouts/administrate/application (319.0ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_stylesheet.html.erb (32.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_icons.erb (1.0ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_navigation.html.erb (9.7ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_flashes.html.erb (1.6ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_javascript.html.erb (138.4ms)
+Completed 200 OK in 671ms (Views: 583.8ms | ActiveRecord: 31.0ms)
+
+
+Started PATCH "/admin/hotels/7" for 127.0.0.1 at 2017-07-14 15:22:03 +0300
+Processing by Admin::HotelsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DGkzeXEtjMqyjW/E5/Xif+lY+0ocR2/NqJvMkBcwpg6b8BquV2BRMblGCdqkZIw2I+oc9Eq5c0cNUX+nvvyOTA==", "hotel"=>{"user_id"=>"3", "review_ids"=>[""], "name"=>"qwerty", "star"=>"3", "breakfest"=>"0", "address"=>"a", "description"=>"a", "image"=>"", "room"=>"a", "price"=>"1", "rate"=>"0", "aasm_state"=>"pending"}, "commit"=>"Сохранить Hotel", "id"=>"7"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mHotel Load (0.6ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mReview Load (11.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE 1=0[0m
+  [1m[36mReview Load (0.9ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."hotel_id" = ?[0m  [["hotel_id", 7]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (20.9ms)[0m  [1m[33mUPDATE "hotels" SET "updated_at" = ?, "aasm_state" = ? WHERE "hotels"."id" = ?[0m  [["updated_at", "2017-07-14 12:22:04.070462"], ["aasm_state", "pending"], ["id", 7]]
+  [1m[35m (195.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/admin/hotels/7
+Completed 302 Found in 348ms (ActiveRecord: 230.7ms)
+
+
+Started GET "/admin/hotels/7" for 127.0.0.1 at 2017-07-14 15:22:04 +0300
+Processing by Admin::HotelsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mHotel Load (0.6ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering admin/application/show.html.erb within layouts/administrate/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_show.html.erb (6.0ms)
+  [1m[36mReview Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "reviews" WHERE "reviews"."hotel_id" = ? LIMIT ? OFFSET ?[0m  [["hotel_id", 7], ["LIMIT", 1], ["OFFSET", 0]]
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_show.html.erb (28.4ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_show.html.erb (1.7ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_show.html.erb (3.9ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_show.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/boolean/_show.html.erb (1.4ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_show.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/date_time/_show.html.erb (3.7ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/date_time/_show.html.erb (1.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_show.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_show.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/text/_show.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_show.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_show.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_show.html.erb (0.2ms)
+  Rendered admin/application/show.html.erb within layouts/administrate/application (307.8ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_stylesheet.html.erb (29.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_icons.erb (1.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_navigation.html.erb (14.6ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_flashes.html.erb (1.4ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_javascript.html.erb (113.5ms)
+Completed 200 OK in 611ms (Views: 578.3ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/admin/hotels" for 127.0.0.1 at 2017-07-14 15:22:07 +0300
+Processing by Admin::HotelsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering admin/application/index.html.erb within layouts/administrate/application
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_search.html.erb (7.6ms)
+  [1m[36mHotel Load (1.0ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (0, 3)[0m
+  [1m[36mReview Load (0.6ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."hotel_id" IN (1, 2, 4, 5, 6, 7)[0m
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (2.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (1.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (2.4ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (1.4ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.9ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (3.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered admin/application/_collection.html.erb (228.8ms)
+  Rendered admin/application/index.html.erb within layouts/administrate/application (289.9ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_stylesheet.html.erb (36.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_icons.erb (1.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_navigation.html.erb (11.9ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_flashes.html.erb (2.4ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_javascript.html.erb (77.6ms)
+Completed 200 OK in 515ms (Views: 494.9ms | ActiveRecord: 5.8ms)
+
+
+Started PUT "/hotels/7/approve" for 127.0.0.1 at 2017-07-14 15:22:12 +0300
+Processing by HotelsController#approve as HTML
+  Parameters: {"authenticity_token"=>"O2UhJovlYBwIr/jpkSDxCUVpIrc7tVQny+P0xiqCVHSs/Ajxrai95wNknvfSsZ9Aj9vFCW1LSK1uKUfxg058Ng==", "hotel_id"=>"7"}
+  [1m[36mHotel Load (1.2ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "hotels" SET "updated_at" = ?, "aasm_state" = ? WHERE "hotels"."id" = ?[0m  [["updated_at", "2017-07-14 12:22:12.603342"], ["aasm_state", "approved"], ["id", 7]]
+  [1m[35m (308.2ms)[0m  [1m[36mcommit transaction[0m
+  Rendering hotel_mailer/hotel_email.html.erb within layouts/mailer
+  Rendered hotel_mailer/hotel_email.html.erb within layouts/mailer (128.8ms)
+HotelMailer#hotel_email: processed outbound mail in 164.5ms
+Completed 500 Internal Server Error in 556ms (ActiveRecord: 311.4ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `hotel' for #<#<Class:0x007fba88242490>:0x007fba88240708>
+Did you mean?  hotel_url):
+    4:     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    5:   </head>
+    6:   <body>
+    7:     <h1>Hi <%= hotel.user.name %></h1>
+    8:     <p>
+    9:       Your hotel
+   10:     </p>
+  
+app/views/hotel_mailer/hotel_email.html.erb:7:in `_app_views_hotel_mailer_hotel_email_html_erb__1131002704896547482_70219562358880'
+app/mailers/hotel_mailer.rb:6:in `hotel_email'
+app/controllers/hotels_controller.rb:76:in `approve'
+Started GET "/hotels/" for 127.0.0.1 at 2017-07-14 15:29:06 +0300
+Processing by HotelsController#index as HTML
+  Rendering hotels/index.html.haml within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered layouts/_header.html.haml (117.2ms)
+  [1m[36mHotel Load (1.6ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."aasm_state" = ? ORDER BY "hotels"."created_at" DESC LIMIT ? OFFSET ?[0m  [["aasm_state", "approved"], ["LIMIT", 5], ["OFFSET", 0]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (83.9ms)
+  [1m[36mUser Load (25.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (42.3ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (19.8ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (23.7ms)
+  Rendered hotels/index.html.haml within layouts/application (456.8ms)
+Completed 200 OK in 1412ms (Views: 1270.8ms | ActiveRecord: 36.3ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-07-14 15:29:16 +0300
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering admin/application/index.html.erb within layouts/administrate/application
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_search.html.erb (3.9ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  [1m[36mHotel Load (1.1ms)[0m  [1m[34mSELECT "hotels".* FROM "hotels" WHERE "hotels"."user_id" IN (0, 2, 3)[0m
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (1.9ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (1.8ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (2.4ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (0.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (0.4ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (0.4ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered admin/application/_collection.html.erb (219.4ms)
+  Rendered admin/application/index.html.erb within layouts/administrate/application (320.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_stylesheet.html.erb (58.7ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_icons.erb (1.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_navigation.html.erb (34.6ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_flashes.html.erb (2.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_javascript.html.erb (142.1ms)
+Completed 200 OK in 748ms (Views: 695.3ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/admin/hotels" for 127.0.0.1 at 2017-07-14 15:29:20 +0300
+Processing by Admin::HotelsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering admin/application/index.html.erb within layouts/administrate/application
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_search.html.erb (5.3ms)
+  [1m[36mHotel Load (3.2ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (0, 3)[0m
+  [1m[36mReview Load (0.7ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."hotel_id" IN (1, 2, 4, 5, 6, 7)[0m
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (6.0ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (1.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (1.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (1.7ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (1.6ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (1.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (1.7ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (0.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered admin/application/_collection.html.erb (290.1ms)
+  Rendered admin/application/index.html.erb within layouts/administrate/application (341.9ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_stylesheet.html.erb (24.4ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_icons.erb (1.0ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_navigation.html.erb (6.8ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_flashes.html.erb (1.4ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_javascript.html.erb (75.4ms)
+Completed 200 OK in 557ms (Views: 520.8ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/admin/hotels/7/edit" for 127.0.0.1 at 2017-07-14 15:29:43 +0300
+Processing by Admin::HotelsController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mHotel Load (0.8ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering admin/application/edit.html.erb within layouts/administrate/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_form.html.erb (13.6ms)
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  [1m[36mReview Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "reviews" WHERE "reviews"."hotel_id" = ? LIMIT ?[0m  [["hotel_id", 7], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "reviews".id FROM "reviews" WHERE "reviews"."hotel_id" = ?[0m  [["hotel_id", 7]]
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_form.html.erb (28.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_form.html.erb (4.8ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_form.html.erb (2.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/boolean/_form.html.erb (2.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_form.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_form.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_form.html.erb (1.4ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/text/_form.html.erb (3.8ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_form.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_form.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_form.html.erb (1.3ms)
+  Rendered admin/application/_form.html.erb (186.1ms)
+  Rendered admin/application/edit.html.erb within layouts/administrate/application (217.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_stylesheet.html.erb (33.4ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_icons.erb (1.0ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_navigation.html.erb (9.8ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_flashes.html.erb (1.7ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_javascript.html.erb (56.6ms)
+Completed 200 OK in 632ms (Views: 411.8ms | ActiveRecord: 17.0ms)
+
+
+Started PATCH "/admin/hotels/7" for 127.0.0.1 at 2017-07-14 15:29:51 +0300
+Processing by Admin::HotelsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iLEnx+GhNDUuxEo/x4DEbvGcBCKrAI2tdmDKuWfcFbMfKA4Qx+zpziUPLCGEEaonOy7jnP3+kSfTqnmOzhA98Q==", "hotel"=>{"user_id"=>"3", "review_ids"=>[""], "name"=>"qwerty", "star"=>"3", "breakfest"=>"0", "address"=>"a", "description"=>"a", "image"=>"", "room"=>"a", "price"=>"1", "rate"=>"0", "aasm_state"=>"pending"}, "commit"=>"Сохранить Hotel", "id"=>"7"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mHotel Load (0.6ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE 1=0[0m
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."hotel_id" = ?[0m  [["hotel_id", 7]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[33mUPDATE "hotels" SET "updated_at" = ?, "aasm_state" = ? WHERE "hotels"."id" = ?[0m  [["updated_at", "2017-07-14 12:29:51.750354"], ["aasm_state", "pending"], ["id", 7]]
+  [1m[35m (90.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/admin/hotels/7
+Completed 302 Found in 157ms (ActiveRecord: 93.9ms)
+
+
+Started GET "/admin/hotels/7" for 127.0.0.1 at 2017-07-14 15:29:51 +0300
+Processing by Admin::HotelsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mHotel Load (0.6ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering admin/application/show.html.erb within layouts/administrate/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_show.html.erb (2.5ms)
+  [1m[36mReview Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "reviews" WHERE "reviews"."hotel_id" = ? LIMIT ? OFFSET ?[0m  [["hotel_id", 7], ["LIMIT", 1], ["OFFSET", 0]]
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_show.html.erb (34.0ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_show.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_show.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_show.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/boolean/_show.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_show.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/date_time/_show.html.erb (1.8ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/date_time/_show.html.erb (0.6ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_show.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_show.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/text/_show.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_show.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_show.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_show.html.erb (0.5ms)
+  Rendered admin/application/show.html.erb within layouts/administrate/application (181.7ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_stylesheet.html.erb (28.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_icons.erb (0.9ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_navigation.html.erb (6.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_flashes.html.erb (1.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_javascript.html.erb (115.7ms)
+Completed 200 OK in 435ms (Views: 412.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/admin/hotels" for 127.0.0.1 at 2017-07-14 15:29:56 +0300
+Processing by Admin::HotelsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering admin/application/index.html.erb within layouts/administrate/application
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_search.html.erb (6.2ms)
+  [1m[36mHotel Load (1.1ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (0, 3)[0m
+  [1m[36mReview Load (0.8ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."hotel_id" IN (1, 2, 4, 5, 6, 7)[0m
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (4.0ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (1.8ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (1.7ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (1.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (1.6ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (0.7ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (1.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (3.0ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (1.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (1.9ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (0.6ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.4ms)
+  Rendered admin/application/_collection.html.erb (265.2ms)
+  Rendered admin/application/index.html.erb within layouts/administrate/application (319.8ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_stylesheet.html.erb (20.8ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_icons.erb (1.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_navigation.html.erb (6.7ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_flashes.html.erb (1.6ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_javascript.html.erb (52.2ms)
+Completed 200 OK in 498ms (Views: 483.2ms | ActiveRecord: 4.2ms)
+
+
+Started PUT "/hotels/7/approve" for 127.0.0.1 at 2017-07-14 15:29:58 +0300
+Processing by HotelsController#approve as HTML
+  Parameters: {"authenticity_token"=>"CsXyJQjpZU7VLu+2KsfhS+nTgRgOZAIs9ickJI+fL9idXNvyLqS4td7liahpVo8CI2FmpliaHqZT7ZcTJlMHmg==", "hotel_id"=>"7"}
+  [1m[36mHotel Load (2.9ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (6.3ms)[0m  [1m[33mUPDATE "hotels" SET "updated_at" = ?, "aasm_state" = ? WHERE "hotels"."id" = ?[0m  [["updated_at", "2017-07-14 12:29:58.796145"], ["aasm_state", "approved"], ["id", 7]]
+  [1m[35m (212.6ms)[0m  [1m[36mcommit transaction[0m
+  Rendering hotel_mailer/hotel_email.html.erb within layouts/mailer
+  Rendered hotel_mailer/hotel_email.html.erb within layouts/mailer (7.4ms)
+  Rendering hotel_mailer/hotel_email.text.erb within layouts/mailer
+  Rendered hotel_mailer/hotel_email.text.erb within layouts/mailer (1.2ms)
+HotelMailer#hotel_email: processed outbound mail in 134.1ms
+Sent mail to lp_vetal@mail.ru (2843.6ms)
+Date: Fri, 14 Jul 2017 15:29:59 +0300
+From: from@example.com
+To: lp_vetal@mail.ru
+Message-ID: <5968b9474d320_13a82e8201833644@HAL-9000.mail>
+Subject: Hotel status change
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5968b9473ff28_13a82e8201833551";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5968b9473ff28_13a82e8201833551
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi 
+Your hotel qwerty was approved
+
+----==_mimepart_5968b9473ff28_13a82e8201833551
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi </h1>
+    <p>
+      Your hotel qwerty was approved
+    </p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+----==_mimepart_5968b9473ff28_13a82e8201833551--
+
+Redirected to http://localhost:3000/admin/hotels
+Completed 302 Found in 3410ms (ActiveRecord: 222.3ms)
+
+
+Started GET "/admin/hotels" for 127.0.0.1 at 2017-07-14 15:30:02 +0300
+Processing by Admin::HotelsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering admin/application/index.html.erb within layouts/administrate/application
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_search.html.erb (5.6ms)
+  [1m[36mHotel Load (1.1ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (0, 3)[0m
+  [1m[36mReview Load (0.8ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."hotel_id" IN (1, 2, 4, 5, 6, 7)[0m
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (4.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (1.8ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (2.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (1.9ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (1.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (0.6ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (1.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (0.6ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (1.6ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (0.4ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (1.6ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (0.4ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/belongs_to/_index.html.erb (2.1ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/has_many/_index.html.erb (0.4ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/number/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/fields/string/_index.html.erb (0.2ms)
+  Rendered admin/application/_collection.html.erb (276.4ms)
+  Rendered admin/application/index.html.erb within layouts/administrate/application (331.9ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_stylesheet.html.erb (39.9ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_icons.erb (1.7ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_navigation.html.erb (8.5ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_flashes.html.erb (2.4ms)
+  Rendered /var/lib/gems/2.3.0/bundler/gems/administrate-b3e9d9b5b193/app/views/administrate/application/_javascript.html.erb (110.2ms)
+Completed 200 OK in 625ms (Views: 603.9ms | ActiveRecord: 3.6ms)
+
+
