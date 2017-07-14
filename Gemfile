@@ -9,7 +9,7 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.2'
 # Use sqlite3 as the database for Active Record
-
+gem 'figaro'
 gem 'active_model_serializers'
 gem 'devise'
 gem 'mini_magick'
@@ -22,7 +22,7 @@ gem 'has_scope'
 gem 'russian', '~> 0.6.0'
 gem 'jquery-rails'
 gem 'administrate', :github => 'thoughtbot/administrate', :branch => 'master'
-
+gem 'aasm'
 group :development do
   gem "erb2haml"
   gem 'sqlite3'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170712141115) do
+ActiveRecord::Schema.define(version: 20170713132535) do
 
   create_table "hotels", force: :cascade do |t|
     t.string "name"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20170712141115) do
     t.text "room"
     t.integer "price"
     t.integer "rate"
-    t.string "status"
+    t.string "aasm_state"
     t.index ["user_id"], name: "index_hotels_on_user_id"
   end
 

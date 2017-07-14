@@ -71,6 +71,26 @@ to display a collection of resources in an HTML table.
           </td>
         <% end %>
 
+
+        <% if (resource.may_approve? if resource.respond_to? :approve)%>
+          <td style="border: blue solid 2px"><%= link_to(
+            "approve",
+            hotel_approve_path(resource),
+            class: "action-edit",
+            method: :put,
+          ) %></td>
+        <% end %>
+
+        <% if (resource.may_reject? if resource.respond_to? :reject)%>
+          <td style="border: blue solid 2px"><%= link_to(
+            "reject",
+            hotel_reject_path(resource),
+            class: "action-edit",
+            method: :put,
+          ) %></td>
+        <% end %>
+
+
         <% if valid_action? :edit, collection_presenter.resource_name %>
           <td><%= link_to(
             t("administrate.actions.edit"),

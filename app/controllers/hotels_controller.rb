@@ -4,17 +4,17 @@ class HotelsController < ApplicationController
   # GET /hotels
   # GET /hotels.json
   def index
-    @hotels = Hotel.where(status: "approved").order(created_at: :desc).page(params[:page])
+    @hotels = Hotel.where(aasm_state: "approved").order(created_at: :desc).page(params[:page])
   end
 
   # GET /hotels/1
   def top
-    @hotels = Hotel.where(status: "approved").order(rate: :desc).limit(5);
+    @hotels = Hotel.where(aasm_state: "approved").order(rate: :desc).limit(5);
   end
 
   def show
     @hotel = Hotel.find(params[:id])
-    if @hotel.status != "approved"
+    if @hotel.aasm_state != "approved"
       raise ActionController::RoutingError.new('Not Found')
     end
     #@reviews = Reviews.find(params[:id]) Studying this point
@@ -28,7 +28,7 @@ class HotelsController < ApplicationController
   # GET /hotels/1/edit
   def edit
     @hotel = Hotel.find(params[:id])
-    if @hotel.status != "approved"
+    if @hotel.aasm_state != "approved"
       raise ActionController::RoutingError.new('Not Found')
     end
   end
@@ -38,12 +38,10 @@ class HotelsController < ApplicationController
   def create
     @hotel = Hotel.new(hotel_params)
     @hotel.rate=0;
-    @hotel.status="pending"
     @hotel.user_id = current_user.id
-
     respond_to do |format|
       if @hotel.save
-        format.html { redirect_to @hotel, notice: 'Hotel was successfully created.' }
+        format.html { redirect_to hotels_path, notice: 'Hotel was successfully created. It will appear in the list after moderator approval'}
       else
         format.html { render :new }
       end
@@ -55,7 +53,7 @@ class HotelsController < ApplicationController
   def update
     respond_to do |format|
       if @hotel.update(hotel_params)
-        format.html { redirect_to @hotel, notice: 'Hotel was successfully updated.' }
+        format.html { redirect_to @hotel, notice: 'Hotel was successfully updated.'  }
       else
         format.html { render :edit }
       end
@@ -67,7 +65,27 @@ class HotelsController < ApplicationController
   def destroy
     @hotel.destroy
     respond_to do |format|
-      format.html { redirect_to hotels_path, notice: 'Hotel was successfully destroyed.' }
+      format.html { redirect_to hotels_path, notice: 'Hotel was successfully destroyed.'  }
+    end
+  end
+
+  def approve
+    @hotel = Hotel.find(params[:hotel_id])
+    @hotel.approve
+    @hotel.save
+    HotelMailer.hotel_email(@hotel).deliver
+    respond_to do |format|
+      format.html { redirect_to admin_hotels_path, notice: 'Hotel was successfully approved.'  }
+    end
+  end
+
+  def reject
+    @hotel = Hotel.find(params[:hotel_id])
+    @hotel.reject
+    @hotel.save
+    HotelMailer.hotel_email(@hotel).deliver
+    respond_to do |format|
+      format.html { redirect_to admin_hotels_path, notice: 'Hotel was successfully rejected.' }
     end
   end
 
