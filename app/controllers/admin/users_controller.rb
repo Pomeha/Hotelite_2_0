@@ -21,25 +21,26 @@ module Admin
     #   @user = User.find(params[:id])
     # end
 
-  # PATCH/PUT /admin/users/1
+    # PATCH/PUT /admin/users/1
     def update
       if params[:user][:password].blank?
         params[:user].delete(:password)
         params[:user].delete(:password_confirmation)
       end
-        if requested_resource.update(resource_params)
-          redirect_to(
-            [namespace, requested_resource],
-            notice: translate_with_resource("update.success"),
-          )
-        else
-          render :edit, locals: {
-            page: Administrate::Page::Form.new(dashboard, requested_resource),
-          }
-        end
+      if requested_resource.update(resource_params)
+        redirect_to(
+          [namespace, requested_resource],
+          notice: translate_with_resource('update.success')
+        )
+      else
+        render :edit, locals: {
+          page: Administrate::Page::Form.new(dashboard, requested_resource)
+        }
+      end
     end
 
     private
+
     def set_user
       @user = User.find(params[:id])
     end
