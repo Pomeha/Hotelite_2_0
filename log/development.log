@@ -14023,3 +14023,548 @@ See https://github.com/plataformatec/simple_form/pull/997 for more information.
 Completed 200 OK in 564ms (Views: 547.2ms | ActiveRecord: 1.2ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-07-14 17:10:09 +0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HotelsController#top as HTML
+  Rendering hotels/top.html.haml within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered layouts/_header.html.haml (124.9ms)
+  [1m[36mHotel Load (1.6ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."aasm_state" = ? ORDER BY "hotels"."rate" DESC LIMIT ?[0m  [["aasm_state", "approved"], ["LIMIT", 5]]
+Started GET "/" for 127.0.0.1 at 2017-07-14 17:10:13 +0300
+Processing by HotelsController#top as HTML
+  Rendering hotels/top.html.haml within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered layouts/_header.html.haml (43.2ms)
+  [1m[36mHotel Load (2.8ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."aasm_state" = ? ORDER BY "hotels"."rate" DESC LIMIT ?[0m  [["aasm_state", "approved"], ["LIMIT", 5]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (5711.9ms)
+  Rendered hotels/_hotel_panel.html.haml (1564.6ms)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (18.7ms)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (22.2ms)
+  Rendered hotels/_hotel_panel.html.haml (15.2ms)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (27.1ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (43.8ms)
+  Rendered hotels/top.html.haml within layouts/application (1755.6ms)
+  [1m[36mUser Load (17.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (59.1ms)
+  Rendered hotels/top.html.haml within layouts/application (6097.9ms)
+Completed 200 OK in 7051ms (Views: 6880.8ms | ActiveRecord: 27.4ms)
+
+
+Completed 200 OK in 2607ms (Views: 2563.0ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-17 15:53:04 +0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HotelsController#top as HTML
+  Rendering hotels/top.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (26.5ms)
+  [1m[36mHotel Load (3.5ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."aasm_state" = ? ORDER BY "hotels"."rate" DESC LIMIT ?[0m  [["aasm_state", "approved"], ["LIMIT", 5]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (1757.4ms)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (8.0ms)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (8.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (8.1ms)
+  Rendered hotels/top.html.haml within layouts/application (1978.9ms)
+Completed 200 OK in 3017ms (Views: 2838.2ms | ActiveRecord: 11.1ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-07-17 16:11:30 +0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (21.2ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (669.3ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-07-17 16:11:32 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (29.4ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (156.4ms)
+Completed 200 OK in 4347ms (Views: 4243.1ms | ActiveRecord: 3.9ms)
+
+
+Completed 200 OK in 2941ms (Views: 2902.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-07-17 16:11:39 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KQ5VA6dWrfup5UuTHK7TbwcQ8QKQSnynBHrn36jvrb9h54C2gzD6GhixnWCV95Pgd4V6f7HrnfaXrbM+9uxwVg==", "user"=>{"email"=>"admin@admin.admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Войти"}
+  [1m[36mUser Load (6.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "admin@admin.admin"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-07-17 13:11:40.050356"], ["last_sign_in_at", "2017-07-14 12:45:38.823073"], ["sign_in_count", 8], ["updated_at", "2017-07-17 13:11:40.059881"], ["id", 0]]
+  [1m[35m (55.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 838ms (ActiveRecord: 63.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-17 16:11:40 +0300
+Processing by HotelsController#top as HTML
+  Rendering hotels/top.html.haml within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered layouts/_header.html.haml (34.2ms)
+  [1m[36mHotel Load (1.5ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."aasm_state" = ? ORDER BY "hotels"."rate" DESC LIMIT ?[0m  [["aasm_state", "approved"], ["LIMIT", 5]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (96.5ms)
+  [1m[36mCACHE User Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (9.5ms)
+  [1m[36mCACHE User Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (8.7ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (9.5ms)
+  Rendered hotels/top.html.haml within layouts/application (261.5ms)
+Completed 200 OK in 782ms (Views: 590.7ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/hotels/new" for 127.0.0.1 at 2017-07-17 16:11:46 +0300
+Processing by HotelsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering hotels/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (37.6ms)
+DEPRECATION WARNING: input method now accepts a `wrapper_options` argument. The method definition without the argument is deprecated and will be removed in the next Simple Form version. Change your code from:
+
+    def input
+
+to
+
+    def input(wrapper_options)
+
+See https://github.com/plataformatec/simple_form/pull/997 for more information.
+ (called from block in _app_views_hotels__form_html_haml__4417746145473592719_70282780900660 at /home/scootaloo/Hotelite_2_0/app/views/hotels/_form.html.haml:46)
+  Rendered hotels/_form.html.haml (113.5ms)
+  Rendered hotels/new.html.haml within layouts/application (177.0ms)
+Completed 200 OK in 612ms (Views: 534.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/hotels/new" for 127.0.0.1 at 2017-07-17 16:12:31 +0300
+Processing by HotelsController#new as HTML
+  [1m[36mUser Load (5.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering hotels/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (16.8ms)
+DEPRECATION WARNING: input method now accepts a `wrapper_options` argument. The method definition without the argument is deprecated and will be removed in the next Simple Form version. Change your code from:
+
+    def input
+
+to
+
+    def input(wrapper_options)
+
+See https://github.com/plataformatec/simple_form/pull/997 for more information.
+ (called from block in _app_views_hotels__form_html_haml__4417746145473592719_70282793320320 at /home/scootaloo/Hotelite_2_0/app/views/hotels/_form.html.haml:46)
+  Rendered hotels/_form.html.haml (85.7ms)
+  Rendered hotels/new.html.haml within layouts/application (134.0ms)
+Completed 200 OK in 529ms (Views: 504.5ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/hotels/new" for 127.0.0.1 at 2017-07-17 16:12:53 +0300
+Processing by HotelsController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering hotels/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (24.0ms)
+DEPRECATION WARNING: input method now accepts a `wrapper_options` argument. The method definition without the argument is deprecated and will be removed in the next Simple Form version. Change your code from:
+
+    def input
+
+to
+
+    def input(wrapper_options)
+
+See https://github.com/plataformatec/simple_form/pull/997 for more information.
+ (called from block in _app_views_hotels__form_html_haml__4417746145473592719_70282883270640 at /home/scootaloo/Hotelite_2_0/app/views/hotels/_form.html.haml:46)
+  Rendered hotels/_form.html.haml (56.3ms)
+  Rendered hotels/new.html.haml within layouts/application (93.4ms)
+Completed 200 OK in 343ms (Views: 335.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/hotels/new" for 127.0.0.1 at 2017-07-17 16:13:42 +0300
+Processing by HotelsController#new as HTML
+  [1m[36mUser Load (6.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering hotels/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (23.9ms)
+DEPRECATION WARNING: input method now accepts a `wrapper_options` argument. The method definition without the argument is deprecated and will be removed in the next Simple Form version. Change your code from:
+
+    def input
+
+to
+
+    def input(wrapper_options)
+
+See https://github.com/plataformatec/simple_form/pull/997 for more information.
+ (called from block in _app_views_hotels__form_html_haml__4417746145473592719_70282794461740 at /home/scootaloo/Hotelite_2_0/app/views/hotels/_form.html.haml:46)
+  Rendered hotels/_form.html.haml (99.3ms)
+  Rendered hotels/new.html.haml within layouts/application (144.4ms)
+Completed 200 OK in 524ms (Views: 490.3ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/hotels/new" for 127.0.0.1 at 2017-07-17 16:14:18 +0300
+Processing by HotelsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering hotels/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (15.7ms)
+DEPRECATION WARNING: input method now accepts a `wrapper_options` argument. The method definition without the argument is deprecated and will be removed in the next Simple Form version. Change your code from:
+
+    def input
+
+to
+
+    def input(wrapper_options)
+
+See https://github.com/plataformatec/simple_form/pull/997 for more information.
+ (called from block in _app_views_hotels__form_html_haml__4417746145473592719_70282778303640 at /home/scootaloo/Hotelite_2_0/app/views/hotels/_form.html.haml:46)
+  Rendered hotels/_form.html.haml (44.3ms)
+  Rendered hotels/new.html.haml within layouts/application (72.5ms)
+Completed 200 OK in 282ms (Views: 257.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/hotels/new" for 127.0.0.1 at 2017-07-17 16:17:22 +0300
+Processing by HotelsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering hotels/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (40.4ms)
+DEPRECATION WARNING: input method now accepts a `wrapper_options` argument. The method definition without the argument is deprecated and will be removed in the next Simple Form version. Change your code from:
+
+    def input
+
+to
+
+    def input(wrapper_options)
+
+See https://github.com/plataformatec/simple_form/pull/997 for more information.
+ (called from block in _app_views_hotels__form_html_haml__4417746145473592719_70282796734320 at /home/scootaloo/Hotelite_2_0/app/views/hotels/_form.html.haml:46)
+  Rendered hotels/_form.html.haml (76.1ms)
+  Rendered hotels/new.html.haml within layouts/application (133.4ms)
+Completed 200 OK in 417ms (Views: 372.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2017-07-17 16:24:41 +0300
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 203ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-17 16:24:42 +0300
+Processing by HotelsController#top as HTML
+  Rendering hotels/top.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (26.3ms)
+  [1m[36mHotel Load (1.0ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."aasm_state" = ? ORDER BY "hotels"."rate" DESC LIMIT ?[0m  [["aasm_state", "approved"], ["LIMIT", 5]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (35.9ms)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (8.2ms)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (8.7ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (8.5ms)
+  Rendered hotels/top.html.haml within layouts/application (111.2ms)
+Completed 200 OK in 516ms (Views: 505.0ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-07-17 16:24:44 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (17.9ms)
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-07-17 16:24:48 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (12.7ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (6591.0ms)
+Completed 500 Internal Server Error in 6694ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<#<Class:0x007fd7ec080040>:0x007fd7ec06d648>):
+    32: 
+    33:     .row
+    34:       .form-actions
+    35:         = f.button :submit, "Зарегистрироваться",
+    36:           class:"btn btn-primary"
+    37:     /= render "devise/shared/links"
+  
+app/views/devise/registrations/new.html.haml:35:in `_app_views_devise_registrations_new_html_haml___4314591731341931580_70282677255980'
+  Rendered devise/registrations/new.html.haml within layouts/application (5474.1ms)
+Completed 500 Internal Server Error in 5579ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<#<Class:0x007fd7ec080040>:0x007fd7f85a1248>):
+    32: 
+    33:     .row
+    34:       .form-actions
+    35:         = f.button :submit, "Зарегистрироваться",
+    36:           class:"btn btn-primary"
+    37:     /= render "devise/shared/links"
+  
+app/views/devise/registrations/new.html.haml:35:in `_app_views_devise_registrations_new_html_haml___4314591731341931580_70282780749300'
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-07-17 16:25:42 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (48.4ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (128.3ms)
+Completed 200 OK in 494ms (Views: 484.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-07-17 16:54:03 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (19.0ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (238.7ms)
+Completed 200 OK in 1454ms (Views: 1393.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-07-17 16:54:22 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (24.1ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (82.7ms)
+Completed 200 OK in 363ms (Views: 356.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-07-17 16:54:49 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (28.8ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (116.2ms)
+Completed 200 OK in 504ms (Views: 494.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-07-17 16:58:40 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (16.6ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (69.2ms)
+Completed 200 OK in 286ms (Views: 280.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-07-17 16:59:25 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (25.3ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (90.5ms)
+Completed 200 OK in 447ms (Views: 441.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-07-17 17:00:30 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (32.2ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (105.6ms)
+Completed 200 OK in 451ms (Views: 445.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-07-17 17:00:55 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/sessions/new.html.haml within layouts/application (30.2ms)
+Completed 500 Internal Server Error in 65ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/scootaloo/Hotelite_2_0/app/views/devise/sessions/new.html.haml:22: unknown regexp options - dv
+unmatched close parenthesis: /input_html: { class: "form-control" }, label_html: { class: 'form-label' }
+)).to_s));).to_s);; _hamlout.buffer << ("\n</i
+/home/scootaloo/Hotelite_2_0/app/views/devise/sessions/new.html.haml:22: syntax error, unexpected $undefined
+... _hamlout.buffer << ("\n</div>\n<div class='row'>\n<div clas...
+...                               ^
+/home/scootaloo/Hotelite_2_0/app/views/devise/sessions/new.html.haml:22: syntax error, unexpected keyword_class, expecting keyword_do or '{' or '('
+...uffer << ("\n</div>\n<div class='row'>\n<div class='form-act...
+...                               ^
+/home/scootaloo/Hotelite_2_0/app/views/devise/sessions/new.html.haml:22: syntax error, unexpected $undefined
+... ("\n</div>\n<div class='row'>\n<div class='form-actions'>\n...
+...                               ^
+/home/scootaloo/Hotelite_2_0/app/views/devise/sessions/new.html.haml:22: syntax error, unexpected keyword_class, expecting keyword_do or '{' or '('
+...\n<div class='row'>\n<div class='form-actions'>\n".freeze);; 
+...                               ^
+/home/scootaloo/Hotelite_2_0/app/views/devise/sessions/new.html.haml:22: syntax error, unexpected $undefined
+...'>\n<div class='form-actions'>\n".freeze);; 
+...                               ^
+/home/scootaloo/Hotelite_2_0/app/views/devise/sessions/new.html.haml:27: syntax error, unexpected tIDENTIFIER, expecting ')'
+...( f.button :submit, "Войти", class:"btn btn-primary"
+...                               ^
+/home/scootaloo/Hotelite_2_0/app/views/devise/sessions/new.html.haml:27: syntax error, unexpected tIDENTIFIER, expecting ')'
+...ubmit, "Войти", class:"btn btn-primary"
+...                               ^
+/home/scootaloo/Hotelite_2_0/app/views/devise/sessions/new.html.haml:27: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+/home/scootaloo/Hotelite_2_0/app/views/devise/sessions/new.html.haml:28: syntax error, unexpected $undefined, expecting ')'
+....to_s);; _hamlout.buffer << ("\n</div>\n</div>\n".freeze);; ...
+...                               ^
+/home/scootaloo/Hotelite_2_0/app/views/devise/sessions/new.html.haml:28: unknown regexp options - dv
+/home/scootaloo/Hotelite_2_0/app/views/devise/sessions/new.html.haml:28: syntax error, unexpected $undefined
+...t.buffer << ("\n</div>\n</div>\n".freeze);; end;; _hamlout.b...
+...                               ^
+/home/scootaloo/Hotelite_2_0/app/views/devise/sessions/new.html.haml:28: unknown regexp options - dv
+/home/scootaloo/Hotelite_2_0/app/views/devise/sessions/new.html.haml:28: syntax error, unexpected $undefined
+...out.buffer << ("</div>\n</div>\n<!-- = render \"devise/share...
+...                               ^
+/home/scootaloo/Hotelite_2_0/app/views/devise/sessions/new.html.haml:28: syntax error, unexpected '='
+...fer << ("</div>\n</div>\n<!-- = render \"devise/shared/links...
+...                               ^
+/home/scootaloo/Hotelite_2_0/app/views/devise/sessions/new.html.haml:28: syntax error, unexpected keyword_ensure, expecting ')'
+...:Util.html_safe(_erbout);ensure;@haml_buffer = @haml_buffer....
+...                               ^
+/home/scootaloo/Hotelite_2_0/app/views/devise/sessions/new.html.haml:28: syntax error, unexpected keyword_end, expecting ')'
+...uffer.upper if @haml_buffer;end;
+...                               ^
+/home/scootaloo/Hotelite_2_0/app/views/devise/sessions/new.html.haml:31: syntax error, unexpected keyword_end, expecting ')'):
+  
+app/views/devise/sessions/new.html.haml:22: unknown regexp options - dv
+app/views/devise/sessions/new.html.haml:22: syntax error, unexpected $undefined
+app/views/devise/sessions/new.html.haml:22: syntax error, unexpected keyword_class, expecting keyword_do or '{' or '('
+app/views/devise/sessions/new.html.haml:22: syntax error, unexpected $undefined
+app/views/devise/sessions/new.html.haml:22: syntax error, unexpected keyword_class, expecting keyword_do or '{' or '('
+app/views/devise/sessions/new.html.haml:22: syntax error, unexpected $undefined
+app/views/devise/sessions/new.html.haml:27: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/devise/sessions/new.html.haml:27: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/devise/sessions/new.html.haml:27: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+app/views/devise/sessions/new.html.haml:28: syntax error, unexpected $undefined, expecting ')'
+app/views/devise/sessions/new.html.haml:28: unknown regexp options - dv
+app/views/devise/sessions/new.html.haml:28: syntax error, unexpected $undefined
+app/views/devise/sessions/new.html.haml:28: unknown regexp options - dv
+app/views/devise/sessions/new.html.haml:28: syntax error, unexpected $undefined
+app/views/devise/sessions/new.html.haml:28: syntax error, unexpected '='
+app/views/devise/sessions/new.html.haml:28: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/devise/sessions/new.html.haml:28: syntax error, unexpected keyword_end, expecting ')'
+app/views/devise/sessions/new.html.haml:31: syntax error, unexpected keyword_end, expecting ')'
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-07-17 17:01:14 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (39.1ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (87.2ms)
+Completed 200 OK in 413ms (Views: 397.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-07-17 17:03:11 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (21.5ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (80.1ms)
+Completed 200 OK in 373ms (Views: 370.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hotels" for 127.0.0.1 at 2017-07-17 17:03:40 +0300
+Processing by HotelsController#index as HTML
+  Rendering hotels/index.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (41.7ms)
+  [1m[36mHotel Load (49.1ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."aasm_state" = ? ORDER BY "hotels"."created_at" DESC LIMIT ? OFFSET ?[0m  [["aasm_state", "approved"], ["LIMIT", 5], ["OFFSET", 0]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (53.7ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (7.9ms)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (8.9ms)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (8.8ms)
+  Rendered hotels/index.html.haml within layouts/application (239.9ms)
+Completed 200 OK in 579ms (Views: 513.2ms | ActiveRecord: 50.4ms)
+
+
+Started GET "/hotels/7" for 127.0.0.1 at 2017-07-17 17:03:42 +0300
+Processing by HotelsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mHotel Load (0.7ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Hotel Load (0.0ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering hotels/show.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (75.9ms)
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."hotel_id" = ?[0m  [["hotel_id", 7]]
+  Rendered hotels/show.html.haml within layouts/application (2388.6ms)
+Started GET "/hotels/hotels/7" for 127.0.0.1 at 2017-07-17 17:03:45 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/hotels/hotels/7"):
+  
+actionpack (5.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.2) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Completed 200 OK in 2751ms (Views: 2675.0ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/hotels/7" for 127.0.0.1 at 2017-07-17 17:03:54 +0300
+Processing by HotelsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mHotel Load (10.6ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Hotel Load (0.1ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering hotels/show.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (18.1ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."hotel_id" = ?[0m  [["hotel_id", 7]]
+  Rendered hotels/show.html.haml within layouts/application (102.4ms)
+Completed 200 OK in 543ms (Views: 484.5ms | ActiveRecord: 12.2ms)
+
+
+Started GET "/hotels/7" for 127.0.0.1 at 2017-07-17 17:03:55 +0300
+Processing by HotelsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mHotel Load (0.7ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Hotel Load (0.0ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering hotels/show.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (29.5ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."hotel_id" = ?[0m  [["hotel_id", 7]]
+  Rendered hotels/show.html.haml within layouts/application (82.5ms)
+Completed 200 OK in 467ms (Views: 432.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/hotels" for 127.0.0.1 at 2017-07-17 17:04:00 +0300
+Processing by HotelsController#index as HTML
+  Rendering hotels/index.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (19.7ms)
+  [1m[36mHotel Load (0.7ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."aasm_state" = ? ORDER BY "hotels"."created_at" DESC LIMIT ? OFFSET ?[0m  [["aasm_state", "approved"], ["LIMIT", 5], ["OFFSET", 0]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (28.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (7.4ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (6.7ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered hotels/_hotel_panel.html.haml (7.0ms)
+  Rendered hotels/index.html.haml within layouts/application (121.1ms)
+Completed 200 OK in 408ms (Views: 396.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/hotels/7" for 127.0.0.1 at 2017-07-17 17:04:02 +0300
+Processing by HotelsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mHotel Load (0.5ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Hotel Load (0.0ms)[0m  [1m[34mSELECT  "hotels".* FROM "hotels" WHERE "hotels"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering hotels/show.html.haml within layouts/application
+  Rendered layouts/_header.html.haml (14.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."hotel_id" = ?[0m  [["hotel_id", 7]]
+  Rendered hotels/show.html.haml within layouts/application (114.5ms)
+Completed 200 OK in 558ms (Views: 526.4ms | ActiveRecord: 1.4ms)
+
+
