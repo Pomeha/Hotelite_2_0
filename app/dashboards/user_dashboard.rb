@@ -9,7 +9,7 @@ class UserDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     reviews: Field::HasMany.with_options(searchable: false),
-    hotels: Field::HasMany.with_options(searchable: true),
+    hotels: Field::HasMany.with_options(searchable: false),
     id: Field::Number.with_options(searchable: false),
     email: Field::String.with_options(searchable: true),
     encrypted_password: Field::String.with_options(searchable: false),
