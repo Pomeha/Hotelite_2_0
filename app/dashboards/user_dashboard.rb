@@ -8,24 +8,24 @@ class UserDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    reviews: Field::HasMany.with_options(searchable: false),
-    hotels: Field::HasMany.with_options(searchable: false),
-    id: Field::Number.with_options(searchable: false),
+    reviews: Field::HasMany,
+    hotels: Field::HasMany,
+    id: Field::Number,
     email: Field::String.with_options(searchable: true),
-    encrypted_password: Field::String.with_options(searchable: false),
-    reset_password_token: Field::String.with_options(searchable: false),
-    reset_password_sent_at: Field::DateTime.with_options(searchable: false),
-    remember_created_at: Field::DateTime.with_options(searchable: false),
-    sign_in_count: Field::Number.with_options(searchable: false),
-    current_sign_in_at: Field::DateTime.with_options(searchable: false),
-    last_sign_in_at: Field::DateTime.with_options(searchable: false),
-    current_sign_in_ip: Field::String.with_options(searchable: false),
-    last_sign_in_ip: Field::String.with_options(searchable: false),
-    created_at: Field::DateTime.with_options(searchable: false),
-    updated_at: Field::DateTime.with_options(searchable: false),
-    name: Field::String.with_options(searchable: false),
-    admin: Field::Boolean.with_options(searchable: false),
-    password: Field::String.with_options(searchable: false)
+    encrypted_password: Field::String,
+    reset_password_token: Field::String,
+    reset_password_sent_at: Field::DateTime,
+    remember_created_at: Field::DateTime,
+    sign_in_count: Field::Number,
+    current_sign_in_at: Field::DateTime,
+    last_sign_in_at: Field::DateTime,
+    current_sign_in_ip: Field::String,
+    last_sign_in_ip: Field::String,
+    created_at: Field::DateTime,
+    updated_at: Field::DateTime,
+    name: Field::String,
+    admin: Field::Boolean,
+    password: Field::String
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -54,7 +54,8 @@ class UserDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :reviews,
+    :id,
+    :name,
     :email,
     :password,
     :admin,
@@ -66,4 +67,7 @@ class UserDashboard < Administrate::BaseDashboard
   # def display_resource(user)
   #   "User ##{user.id}"
   # end
+  def display_resource(user)
+    user.email
+  end
 end
