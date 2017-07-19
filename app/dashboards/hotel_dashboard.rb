@@ -23,6 +23,7 @@ class HotelDashboard < Administrate::BaseDashboard
     price: Field::Number,
     rate: Field::Number,
     aasm_state: Field::String,
+    user_id: Field::Number
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -31,8 +32,7 @@ class HotelDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :user,
-    :reviews,
+    :user_id,
     :id,
     :name,
     :aasm_state

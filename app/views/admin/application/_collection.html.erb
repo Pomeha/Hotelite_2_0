@@ -19,39 +19,46 @@ to display a collection of resources in an HTML table.
 %>
 
 <table aria-labelledby="<%= table_title %>">
-  <thead>
-    <tr>
-      <% collection_presenter.attribute_types.each do |attr_name, attr_type| %>
-        <th class="cell-label
-        cell-label--<%= attr_type.html_class %>
-        cell-label--<%= collection_presenter.ordered_html_class(attr_name) %>"
-        scope="col"
-        role="columnheader"
-        aria-sort="<%= sort_order(collection_presenter.ordered_html_class(attr_name)) %>">
-        <%= link_to(sanitized_order_params.merge(
-          collection_presenter.order_params_for(attr_name)
-        )) do %>
-        <%= t(
-          "helpers.label.#{collection_presenter.resource_name}.#{attr_name}",
-          default: attr_name.to_s,
-        ).titleize %>
-
-            <% if collection_presenter.ordered_by?(attr_name) %>
-              <span class="cell-label__sort-indicator cell-label__sort-indicator--<%= collection_presenter.ordered_html_class(attr_name) %>">
-                <svg aria-hidden="true">
-                  <use xlink:href="#icon-up-caret" />
-                </svg>
-              </span>
-            <% end %>
+  <%= simple_form_for collection_presenter.resource_name.capitalize,  url: eval("admin_#{collection_presenter.resource_name+"s"}_path") , :method => :get do |f| %>
+      
+    <thead>      
+      <tr>
+          <% collection_presenter.attribute_types.each do |attr_name, attr_type| %>
+            <th class="cell-label
+            cell-label--<%= attr_type.html_class %>
+            cell-label--<%= collection_presenter.ordered_html_class(attr_name) %>"
+            scope="col"
+            role="columnheader"
+            aria-sort="<%= sort_order(collection_presenter.ordered_html_class(attr_name)) %>">
+            <%= link_to(sanitized_order_params.merge(
+              collection_presenter.order_params_for(attr_name)
+            )) do %>
+            <%= t(
+              "helpers.label.#{collection_presenter.resource_name}.#{attr_name}",
+              default: attr_name.to_s,
+            ).titleize %>
+                <% if collection_presenter.ordered_by?(attr_name) %>
+                  <span class="cell-label__sort-indicator cell-label__sort-indicator--<%= collection_presenter.ordered_html_class(attr_name) %>">
+                    <svg aria-hidden="true">
+                      <use xlink:href="#icon-up-caret" />
+                    </svg>
+                  </span>
+                <% end %>
+              <% end %>            
+              <%= f.text_field attr_name,:autocomplete => "off", :value => (search_term[attr_name] if search_term)  %>               
+            </th>
           <% end %>
-        </th>
-      <% end %>
-      <% [valid_action?(:edit, collection_presenter.resource_name),
-          valid_action?(:destroy, collection_presenter.resource_name)].count(true).times do %>
-        <th scope="col"></th>
-      <% end %>
-    </tr>
-  </thead>
+          <% [valid_action?(:edit, collection_presenter.resource_name),
+              valid_action?(:destroy, collection_presenter.resource_name)].count(true).times do %>
+            <th scope="col"></th>
+          <% end %>
+          
+      </tr>
+       
+    </thead>
+    <%= f.submit "Search" %>
+    <!--<%= f.button :button, 'Cancel', :type => 'reset' %>-->
+  <% end %>
 
   <tbody>
     <% resources.each do |resource| %>

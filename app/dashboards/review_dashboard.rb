@@ -9,7 +9,9 @@ class ReviewDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     user: Field::BelongsTo,
+    user_id: Field::Number,
     hotel: Field::BelongsTo,
+    hotel_id: Field::Number,
     id: Field::Number,
     rate: Field::Number,
     review: Field::Text,
@@ -23,8 +25,8 @@ class ReviewDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :user,
-    :hotel,
+    :user_id,
+    :hotel_id,
     :id,
     :rate,
   ].freeze

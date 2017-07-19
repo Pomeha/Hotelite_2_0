@@ -83,7 +83,7 @@ class HotelsController < ApplicationController
     @hotel = Hotel.find(params[:hotel_id])
     @hotel.reject
     @hotel.save
-    HotelMailer.hotel_email(@hotel).deliver
+ 		HotelMailer.hotel_email(@hotel).deliver	
     respond_to do |format|
       format.html { redirect_to admin_hotels_path, notice: 'Hotel was successfully rejected.' }
     end

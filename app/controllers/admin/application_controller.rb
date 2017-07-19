@@ -10,7 +10,33 @@ module Admin
       redirect_to new_user_session_path unless current_user && current_user.admin?
     end
 
+    def index
+      resources=scoped_resource.all
+      if params[scoped_resource.name]
+        params[scoped_resource.name].each_pair do |key,value|
+          resources=resources.where(resources.arel_table[key].matches("%#{value}%") ) if !value.empty?
+        end
+      end
+      
+      search_term=params[scoped_resource.name]
 
+      #resources = Administrate::Search.new(scoped_resource,
+      #                                     dashboard_class,
+      #                                     search_term).run
+      #
+      #resources=Hotel.all.limit(5)
+      #debugger
+      resources = resources.includes(*resource_includes) if resource_includes.any?
+      resources = order.apply(resources)
+      resources = resources.page(params[:page]).per(records_per_page)
+      page = Administrate::Page::Collection.new(dashboard, order: order)
+
+      render locals: {
+        resources: resources,
+        search_term: search_term,
+        page: page
+      }
+    end
     def authenticate_admin
       # TODO Add authentication logic here.
     end
