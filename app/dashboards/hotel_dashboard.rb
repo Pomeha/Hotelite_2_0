@@ -33,7 +33,6 @@ class HotelDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :user_id,
-    :user,
     :id,
     :name,
     :aasm_state

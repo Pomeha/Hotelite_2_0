@@ -4,6 +4,18 @@
     word-wrap: break-word
 }
 
+a:active{
+    background-color: inherit
+}
+
+.nav .open a:hover{
+    background-color: #224267
+}
+
+.nav .open a{
+    background-color: #224267
+}
+
 h1,h2,h3,h4,h5,.form-label{
     margin-top:1%;
     margin-bottom: 1%;
@@ -53,7 +65,12 @@ textarea{
     border-radius:0;
 }
 
+.nav li{
+    background-color: #4484ce;
+}
+
 .nav li a{
+    background-color: #4484ce;
     color: white;
     font-family: 'Roboto', sans-serif;
 }
