@@ -23,6 +23,7 @@ gem 'russian', '~> 0.6.0'
 gem 'jquery-rails'
 gem 'administrate', :github => 'thoughtbot/administrate', :branch => 'master'
 gem 'aasm'
+gem 'omniauth-facebook'
 group :development do
   gem "erb2haml"
   gem 'sqlite3'
