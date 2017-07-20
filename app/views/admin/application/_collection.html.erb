@@ -45,7 +45,7 @@ to display a collection of resources in an HTML table.
                   </span>
                 <% end %>
               <% end %>            
-              <%= f.text_field attr_name,:autocomplete => "off", :value => (search_term[attr_name] if search_term)  %>               
+              <%= f.text_field attr_name,:autocomplete => "off", :value => ((search_term[attr_name] if search_term) if defined? search_term)  %>               
             </th>
           <% end %>
           <% [valid_action?(:edit, collection_presenter.resource_name),
