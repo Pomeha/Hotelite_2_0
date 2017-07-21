@@ -1,0 +1,35 @@
+%article
+  %header
+    %h2
+      =@hotel.name
+    %p{:style=>"display:inline"}
+      Пользовательский рейтинг:
+    =hotel_rating @hotel  
+  .row
+    .hotel_page_image.well
+      =hotel_image @hotel
+  .row
+    %p
+      Адрес:
+      =@hotel.address
+    %p{:style=>"display:inline"} 
+      Звездный рейтинг:
+      = hotel_star_rating @hotel
+    - if @hotel.breakfest == true
+      %p Завтрак включен в цену
+    - else
+      %p Завтрак не включен в цену
+    %p
+      Описание:
+      =@hotel.description
+    %p
+      Цена комнаты: 
+      =@hotel.price
+    - if !@hotel.room.blank?
+      %p
+        Описание комнаты:
+        =@hotel.room
+  .row
+    %p
+      Отель добавлен пользователем:
+      =@hotel.user.email

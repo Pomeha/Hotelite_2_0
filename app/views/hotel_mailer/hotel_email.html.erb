@@ -5,8 +5,9 @@
   </head>
   <body>
     <h1>Hi <%= @user.name %></h1>
+    <%= render partial: "hotels/hotel_data", locals: {hotel: @hotel}%>
     <p>
-      Your hotel <%=@hotel.name%> was <%=@hotel.aasm_state%>
+      Your hotel was <b><%=@hotel.aasm_state%></b>
     </p>
   </body>
 </html>
