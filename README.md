@@ -8,4 +8,4 @@
 ##### RoR #####
 ![Ruby on rails art](https://uploads.toptal.io/blog/image/388/toptal-blog-image-1399299014661.png)
 
-![I'm stabled version of hotelite](http://hotelite.herokuapp.com/)
+https://infinite-basin-29624.herokuapp.com/
